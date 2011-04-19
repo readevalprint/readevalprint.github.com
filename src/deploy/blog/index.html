@@ -37,16 +37,23 @@
     <link rel="stylesheet" href="/media/css/site.css">
   <link rel="stylesheet" href="/media/css/syntax.css">
   
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/5.16/styles/sunburst.min.css">
+
     <!-- All JavaScript at the bottom, except for Modernizr which
         enables HTML5 elements & feature detects -->
     <script src="/media/js/libs/modernizr-1.7.min.js"></script>
-    </head>
+    <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+      <script> 
+     hljs.tabReplace = '    ';
+     hljs.initHighlightingOnLoad();
+   </script> 
+  </head>
 <body id="index">
     <div id="container">
             <div id="main" role="main">
           <header class="banner clearfix">
-          <h1>BASIC</h1>
-            <h3>A hyde website</h3>                              <nav class=main_nav>
+          <h1>ReadEvalPrint</h1>
+            <h3>Code: It pays the bills</h3>                              <nav class=main_nav>
     <ul>
                 <li>
             <a title="Home Page"
@@ -80,13 +87,15 @@
 <ul class="listing clear">
 <li>
     <article >
-<h3><a href="/blog/happy-post.html">A Happy Post</a></h3>
-<a href="/blog/happy-post.html"><p><img alt="Airport" src="/media/images/airport.png" /></p></a>
-<p>Lady Malvern was a hearty, happy, healthy, overpowering sort of dashed female,
-not so very tall but making up for it by measuring about six feet from the
-<span class="caps">O.P.</span> to the Prompt&nbsp;Side.</p>
-<time datetime="2011-02-01">
-    Posted: Tue, 01 Feb 2011
+<h3><a href="/blog/happy-post.html">PYPY sandbox for safe execution of arbitrary python code</a></h3>
+<a href="/blog/happy-post.html"></a>
+<p>So I wanted to run some untrusted code. Javascript looked good because it could
+run in the browser (a natural sandbox). But I needed it to run server side&nbsp;too. </p>
+<p>Pypy popped up on a few sites but it was a bit unclear on the use case for it at
+first. But this <a href="http://pypy.org/features.html#sandboxing">helped</a>. Plus, I like
+python&nbsp;:)</p>
+<time datetime="2011-04-17">
+    Posted: Sun, 17 Apr 2011
 </time>
 </article>
 
