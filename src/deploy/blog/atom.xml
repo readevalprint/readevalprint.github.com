@@ -7,7 +7,7 @@
         <link href="/"/>
     
         
-    <updated>2011-04-18T22:52:04Z</updated>
+    <updated>2011-04-19T10:15:10Z</updated>
 
     <id>/blog/atom.xml/</id>
 
@@ -42,7 +42,17 @@ libz-dev libbz2-dev libncurses-dev libexpat1-dev \
 libssl-dev libgc-dev python-sphinx python-greenlet
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Get the source and start the translatino&amp;nbsp;process&lt;/p&gt;
+&lt;h3&gt;Get the source and start the translation&amp;nbsp;process&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What is &amp;#8220;translating&amp;#8221;?&lt;/strong&gt;
+It&amp;#8217;s the process of compiling code written in
+&lt;a href=&#34;http://code.google.com/p/rpython/&#34;&gt;RPython&lt;/a&gt; (a statically typed subset of
+Python) to the target platform wich is by default&amp;nbsp;C.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;why do we need to do that?&lt;/strong&gt;
+This goes back to &lt;a href=&#34;http://codespeak.net/pypy/dist/pypy/doc/getting-started.html#what-is-pypy&#34;&gt;what Pypy
+is&lt;/a&gt;.
+To quote: PyPy is an implementation of the Python programming language written
+in Python itself. So combine python written in python and a compiler for python we
+bet the ability to compile python code to native C speeds.&amp;nbsp;:)&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;&amp;#36; wget http://pypy.org/download/pypy-1.4.1-src.tar.bz2
 &amp;#36; tar -jxvf  ./pypy-1.4.1-src.tar.bz2
 &amp;#36; cd ./pypy-1.4.1-src/pypy/translator/goal
@@ -95,177 +105,5 @@ They suggest installing ledit to have a saner&amp;nbsp;prompt&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;&amp;#36; sudo apt-get install ledit
 &amp;#36; ledit python -u /usr/local/bin/pypy_interact.py --tmp=virtualtmp /opt/pypy-sandbox/pypy/translator/goal/pypy-cp
 &lt;/code&gt;&lt;/pre&gt;            </content>
-        </entry>
-            <entry>
-            <title type="html">An Angry Post</title>
-            <author><name>Lakshmi Vyasarajan</name></author>
-            <link href="/blog/angry-post.html"/>
-            <updated>2011-01-01T10:00:00Z</updated>
-            <published>2011-01-01T10:00:00Z</published>
-            <id>/blog/angry-post.html</id>
-                        <category   scheme="/blog/tags"
-                        term="angry"
-                        label="Angry" />
-                        <category   scheme="/blog/tags"
-                        term="thoughts"
-                        label="Thoughts" />
-            
-            <content type="html">
-                                &lt;p&gt;&lt;img alt=&#34;Airport&#34; src=&#34;/media/images/airport.png&#34; /&gt;
-To complete the character-study of Mr. Worple, he was a man of extremely
-uncertain temper, and his general tendency was to think that Corky was a poor
-chump and that whatever step he took in any direction on his own account, was
-just another proof of his innate idiocy. I should imagine Jeeves feels very
-much the same about me.
-So when Corky trickled into my apartment one afternoon, shooing a girl in
-front of him, and said, &amp;#8220;Bertie, I want you to meet my fiancée, Miss Singer,&amp;#8221;
-the aspect of the matter which hit me first was precisely the one which he had
-come to consult me about. The very first words I spoke were, &amp;#8220;Corky, how about
-your&amp;nbsp;uncle?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;The poor chap gave one of those mirthless laughs. He was looking anxious and
-worried, like a man who has done the murder all right but can&amp;#8217;t think what the
-deuce to do with the&amp;nbsp;body.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;We&amp;#8217;re so scared, Mr. Wooster,&amp;#8221; said the girl. &amp;#8220;We were hoping that you might
-suggest a way of breaking it to&amp;nbsp;him.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;Muriel Singer was one of those very quiet, appealing girls who have a way of
-looking at you with their big eyes as if they thought you were the greatest
-thing on earth and wondered that you hadn&amp;#8217;t got on to it yet yourself. She sat
-there in a sort of shrinking way, looking at me as if she were saying to
-herself, &amp;#8220;Oh, I do hope this great strong man isn&amp;#8217;t going to hurt me.&amp;#8221; She
-gave a fellow a protective kind of feeling, made him want to stroke her hand
-and say, &amp;#8220;There, there, little one!&amp;#8221; or words to that effect. She made me feel
-that there was nothing I wouldn&amp;#8217;t do for her. She was rather like one of those
-innocent-tasting American drinks which creep imperceptibly into your system so
-that, before you know what you&amp;#8217;re doing, you&amp;#8217;re starting out to reform the
-world by force if necessary and pausing on your way to tell the large man in
-the corner that, if he looks at you like that, you will knock his head off.
-What I mean is, she made me feel alert and dashing, like a jolly old
-knight-errant or something of that kind. I felt that I was with her in this
-thing to the&amp;nbsp;limit.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;I don&amp;#8217;t see why your uncle shouldn&amp;#8217;t be most awfully bucked,&amp;#8221; I said to
-Corky. &amp;#8220;He will think Miss Singer the ideal wife for&amp;nbsp;you.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;Corky declined to cheer&amp;nbsp;up.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;You don&amp;#8217;t know him. Even if he did like Muriel he wouldn&amp;#8217;t admit it. That&amp;#8217;s
-the sort of pig-headed guy he is. It would be a matter of principle with him
-to kick. All he would consider would be that I had gone and taken an important
-step without asking his advice, and he would raise Cain automatically. He&amp;#8217;s
-always done&amp;nbsp;it.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;I strained the old bean to meet this&amp;nbsp;emergency.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;You want to work it so that he makes Miss Singer&amp;#8217;s acquaintance without
-knowing that you know her. Then you come&amp;nbsp;along&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;But how can I work it that&amp;nbsp;way?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;I saw his point. That was the&amp;nbsp;catch.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;There&amp;#8217;s only one thing to do,&amp;#8221; I&amp;nbsp;said.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;What&amp;#8217;s&amp;nbsp;that?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;Leave it to&amp;nbsp;Jeeves.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;And I rang the&amp;nbsp;bell.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;Sir?&amp;#8221; said Jeeves, kind of manifesting himself. One of the rummy things about
-Jeeves is that, unless you watch like a hawk, you very seldom see him come
-into a room. He&amp;#8217;s like one of those weird chappies in India who dissolve
-themselves into thin air and nip through space in a sort of disembodied way
-and assemble the parts again just where they want them. I&amp;#8217;ve got a cousin
-who&amp;#8217;s what they call a Theosophist, and he says he&amp;#8217;s often nearly worked the
-thing himself, but couldn&amp;#8217;t quite bring it off, probably owing to having fed
-in his boyhood on the flesh of animals slain in anger and&amp;nbsp;pie.&lt;/p&gt;
-&lt;p&gt;The moment I saw the man standing there, registering respectful attention, a
-weight seemed to roll off my mind. I felt like a lost child who spots his
-father in the offing. There was something about him that gave me&amp;nbsp;confidence.&lt;/p&gt;
-&lt;p&gt;Jeeves is a tallish man, with one of those dark, shrewd faces. His eye gleams
-with the light of pure&amp;nbsp;intelligence.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;Jeeves, we want your&amp;nbsp;advice.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;Very good,&amp;nbsp;sir.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;I boiled down Corky&amp;#8217;s painful case into a few well-chosen&amp;nbsp;words.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;So you see what it amount to, Jeeves. We want you to suggest some way by
-which Mr. Worple can make Miss Singer&amp;#8217;s acquaintance without getting on to the
-fact that Mr. Corcoran already knows her.&amp;nbsp;Understand?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;Perfectly,&amp;nbsp;sir.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;Well, try to think of&amp;nbsp;something.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;I have thought of something already,&amp;nbsp;sir.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;You&amp;nbsp;have!&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;The scheme I would suggest cannot fail of success, but it has what may seem
-to you a drawback, sir, in that it requires a certain financial&amp;nbsp;outlay.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;He means,&amp;#8221; I translated to Corky, &amp;#8220;that he has got a pippin of an idea, but
-it&amp;#8217;s going to cost a&amp;nbsp;bit.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;Naturally the poor chap&amp;#8217;s face dropped, for this seemed to dish the whole
-thing. But I was still under the influence of the girl&amp;#8217;s melting gaze, and I
-saw that this was where I started in as a&amp;nbsp;knight-errant.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;You can count on me for all that sort of thing, Corky,&amp;#8221; I said. &amp;#8220;Only too
-glad. Carry on,&amp;nbsp;Jeeves.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;I would suggest, sir, that Mr. Corcoran take advantage of Mr. Worple&amp;#8217;s
-attachment to&amp;nbsp;ornithology.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;How on earth did you know that he was fond of&amp;nbsp;birds?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.gutenberg.org/cache/epub/8164/pg8164.html&#34;&gt;My Man Jeeves by &lt;span class=&#34;caps&#34;&gt;PG&lt;/span&gt;&amp;nbsp;Wodehouse&lt;/a&gt;&lt;/p&gt;            </content>
-        </entry>
-            <entry>
-            <title type="html">A Sad Post</title>
-            <author><name>Lakshmi Vyasarajan</name></author>
-            <link href="/blog/sad-post.html"/>
-            <updated>2010-12-01T10:00:00Z</updated>
-            <published>2010-12-01T10:00:00Z</published>
-            <id>/blog/sad-post.html</id>
-                        <category   scheme="/blog/tags"
-                        term="sad"
-                        label="Sad" />
-                        <category   scheme="/blog/tags"
-                        term="thoughts"
-                        label="Thoughts" />
-            
-            <content type="html">
-                                &lt;p&gt;&lt;img alt=&#34;A Dark Image&#34; src=&#34;/media/images/dark.png&#34; /&gt;
-I went and dressed sadly. It will show you pretty well how pipped I was when I
-tell you that I near as a toucher put on a white tie with a dinner-jacket. I
-sallied out for a bit of food more to pass the time than because I wanted it.
-It seemed brutal to be wading into the bill of fare with poor old Bicky headed
-for the breadline.
-When I got back old Chiswick had gone to bed, but Bicky was there, hunched up
-in an arm-chair, brooding pretty tensely, with a cigarette hanging out of the
-corner of his mouth and a more or less glassy stare in his eyes. He had the
-aspect of one who had been soaked with what the newspaper chappies call &amp;#8220;some
-blunt&amp;nbsp;instrument.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;This is a bit thick, old thing—what!&amp;#8221; I&amp;nbsp;said.&lt;/p&gt;
-&lt;p&gt;He picked up his glass and drained it feverishly, overlooking the fact that it
-hadn&amp;#8217;t anything in&amp;nbsp;it.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;I&amp;#8217;m done, Bertie!&amp;#8221; he&amp;nbsp;said.&lt;/p&gt;
-&lt;p&gt;He had another go at the glass. It didn&amp;#8217;t seem to do him any&amp;nbsp;good.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;If only this had happened a week later, Bertie! My next month&amp;#8217;s money was due
-to roll in on Saturday. I could have worked a wheeze I&amp;#8217;ve been reading about
-in the magazine advertisements. It seems that you can make a dashed amount of
-money if you can only collect a few dollars and start a chicken-farm. Jolly
-sound scheme, Bertie! Say you buy a hen—call it one hen for the sake of
-argument. It lays an egg every day of the week. You sell the eggs seven for
-twenty-five cents. Keep of hen costs nothing. Profit practically twenty-five
-cents on every seven eggs. Or look at it another way: Suppose you have a dozen
-eggs. Each of the hens has a dozen chickens. The chickens grow up and have
-more chickens. Why, in no time you&amp;#8217;d have the place covered knee-deep in hens,
-all laying eggs, at twenty-five cents for every seven. You&amp;#8217;d make a fortune.
-Jolly life, too, keeping hens!&amp;#8221; He had begun to get quite worked up at the
-thought of it, but he slopped back in his chair at this juncture with a good
-deal of gloom. &amp;#8220;But, of course, it&amp;#8217;s no good,&amp;#8221; he said, &amp;#8220;because I haven&amp;#8217;t the&amp;nbsp;cash.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;You&amp;#8217;ve only to say the word, you know, Bicky, old&amp;nbsp;top.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;Thanks awfully, Bertie, but I&amp;#8217;m not going to sponge on&amp;nbsp;you.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;That&amp;#8217;s always the way in this world. The chappies you&amp;#8217;d like to lend money to
-won&amp;#8217;t let you, whereas the chappies you don&amp;#8217;t want to lend it to will do
-everything except actually stand you on your head and lift the specie out of
-your pockets. As a lad who has always rolled tolerably free in the right
-stuff, I&amp;#8217;ve had lots of experience of the second class. Many&amp;#8217;s the time, back
-in London, I&amp;#8217;ve hurried along Piccadilly and felt the hot breath of the
-toucher on the back of my neck and heard his sharp, excited yapping as he
-closed in on me. I&amp;#8217;ve simply spent my life scattering largesse to blighters I
-didn&amp;#8217;t care a hang for; yet here was I now, dripping doubloons and pieces of
-eight and longing to hand them over, and Bicky, poor fish, absolutely on his
-uppers, not taking any at any&amp;nbsp;price.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;Well, there&amp;#8217;s only one hope,&amp;nbsp;then.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;What&amp;#8217;s&amp;nbsp;that?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;Jeeves.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;dquo&#34;&gt;&amp;#8220;&lt;/span&gt;Sir?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;There was Jeeves, standing behind me, full of zeal. In this matter of
-shimmering into rooms the chappie is rummy to a degree. You&amp;#8217;re sitting in the
-old armchair, thinking of this and that, and then suddenly you look up, and
-there he is. He moves from point to point with as little uproar as a jelly
-fish. The thing startled poor old Bicky considerably. He rose from his seat
-like a rocketing pheasant. I&amp;#8217;m used to Jeeves now, but often in the days when
-he first came to me I&amp;#8217;ve bitten my tongue freely on finding him unexpectedly
-in my&amp;nbsp;midst.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.gutenberg.org/cache/epub/8164/pg8164.html&#34;&gt;My Man Jeeves by &lt;span class=&#34;caps&#34;&gt;PG&lt;/span&gt;&amp;nbsp;Wodehouse&lt;/a&gt;&lt;/p&gt;            </content>
         </entry>
     </feed>
