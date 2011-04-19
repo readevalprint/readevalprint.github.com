@@ -7,17 +7,17 @@
         <link href="/"/>
     
         
-    <updated>2011-04-18T22:48:37Z</updated>
+    <updated>2011-04-18T22:52:04Z</updated>
 
     <id>/blog/excerpts.xml/</id>
 
             <entry>
             <title type="html">PYPY sandbox for safe execution of arbitrary python code</title>
             <author><name>Lakshmi Vyasarajan</name></author>
-            <link href="/blog/happy-post.html"/>
+            <link href="/blog/python-sandbox-with-pypy.html"/>
             <updated>2011-04-17T10:57:00Z</updated>
             <published>2011-04-17T10:57:00Z</published>
-            <id>/blog/happy-post.html</id>
+            <id>/blog/python-sandbox-with-pypy.html</id>
                         <category   scheme="/blog/tags"
                         term="pypy"
                         label="Pypy" />

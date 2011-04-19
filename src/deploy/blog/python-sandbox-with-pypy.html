@@ -1,0 +1,230 @@
+<!doctype html>
+<!-- https://github.com/paulirish/html5-boilerplate/blob/master/index.html -->
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="">
+
+  <!-- encoding must be specified within the first 512 bytes
+        www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#charset -->
+
+  <!-- meta element for compatibility mode needs to be before
+        all elements except title & meta
+        msdn.microsoft.com/en-us/library/cc288325(VS.85).aspx -->
+  <!-- Chrome Frame is only invoked if meta element for
+        compatibility mode is within the first 1K bytes
+        code.google.com/p/chromium/issues/detail?id=23003 -->
+
+  <title>PYPY sandbox for safe execution of arbitrary python code</title>
+  <meta name="description" content="Yo dawg! I heard you like codez! So I put a compiler in your code so you can code while you're coding.
+">
+  <meta name="author" content="Lakshmi Vyasarajan">
+
+  <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="">
+
+    <!-- Place favicon.ico & apple-touch-icon.png
+        in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    <link rel="stylesheet" href="/media/css/site.css">
+  <link rel="stylesheet" href="/media/css/syntax.css">
+  
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/5.16/styles/sunburst.min.css">
+
+    <!-- All JavaScript at the bottom, except for Modernizr which
+        enables HTML5 elements & feature detects -->
+    <script src="/media/js/libs/modernizr-1.7.min.js"></script>
+    <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+      <script> 
+     hljs.tabReplace = '    ';
+     hljs.initHighlightingOnLoad();
+   </script> 
+  </head>
+<body id="python-sandbox-with-pypy">
+    <div id="container">
+            <div id="main" role="main">
+          <header class="banner clearfix">
+          <h1>ReadEvalPrint</h1>
+            <h3>Code: It pays the bills</h3>                              <nav class=main_nav>
+    <ul>
+                <li>
+            <a title="Home Page"
+                class="button white home"
+                href="/index.html">
+                Home
+            </a>
+        </li>        <li>
+            <a title="Portfolio"
+                class="button white portfolio"
+                href="/portfolio">
+                Portfolio
+            </a>
+        </li>        <li>
+            <a title="Blog"
+                class="button white active blog"
+                href="/blog">
+                Blog
+            </a>
+        </li>        <li>
+            <a title="About"
+                class="button white about"
+                href="/about.html">
+                About
+            </a>
+        </li>    </ul>
+</nav>
+                    </header>
+          <section class="content">
+          <article class="post">
+<nav class="post_nav">
+<a class="backlink" href="/blog">Back to list</a>
+<a class="prev disabled"
+    title=""
+    >
+    Previous
+</a>
+
+<a class="next"
+    title="An Angry Post"
+        href="/blog/angry-post.html">
+    Next
+</a>
+
+<br>
+<div id="twitter_share">
+<a href="http://twitter.com/share"
+    class="twitter-share-button"
+    data-count="vertical"
+    data-via="ringce">Tweet</a>
+    <script type="text/javascript"
+        src="http://platform.twitter.com/widgets.js"></script>
+</div>
+<div id="facebook_like">
+<iframe src="http://www.facebook.com/plugins/like.php?href&amp;layout=box_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=65"
+            scrolling="no"
+            frameborder="0"
+            style="border:none; overflow:hidden; width:450px; height:65px;"
+            allowTransparency="true"></iframe>
+</div>
+</nav>
+<h1 class="title">
+    <a href="/blog/python-sandbox-with-pypy.html">
+        PYPY sandbox for safe execution of arbitrary python code
+    </a>
+</h1>
+<time datetime="2011-04-17">
+    Posted: Sun, 17 Apr 2011
+</time>
+
+<ul class="tags clear">
+<li>
+    <a class="small" href="/blog/tags/pypy.html">
+        pypy
+    </a>
+</li>
+<li>
+    <a class="small" href="/blog/tags/python.html">
+        python
+    </a>
+</li>
+<li>
+    <a class="small" href="/blog/tags/sandbox.html">
+        sandbox
+    </a>
+</li>
+</ul>
+<p>So I wanted to run some untrusted code. Javascript looked good because it could
+run in the browser (a natural sandbox). But I needed it to run server side&nbsp;too. </p>
+<p>Pypy popped up on a few sites but it was a bit unclear on the use case for it at
+first. But this <a href="http://pypy.org/features.html#sandboxing">helped</a>. Plus, I like
+python :)
+So here is who to install it on ubuntu. A lot of help came from <a href="http://www.stephendiehl.com/?p=295">this&nbsp;dude</a> </p>
+<p>I was on his site and <a href="http://pypy.org/download.html#translate">here</a> every day for a&nbsp;week.</p>
+<pre class="bash"><code>&#36; sudo apt-get install \                                                                                                                                            
+gcc make python-dev libffi-dev pkg-config \
+libz-dev libbz2-dev libncurses-dev libexpat1-dev \
+libssl-dev libgc-dev python-sphinx python-greenlet
+</code></pre>
+
+<p>Get the source and start the translatino&nbsp;process</p>
+<pre class="bash"><code>&#36; wget http://pypy.org/download/pypy-1.4.1-src.tar.bz2
+&#36; tar -jxvf  ./pypy-1.4.1-src.tar.bz2
+&#36; cd ./pypy-1.4.1-src/pypy/translator/goal
+&#36; python translate.py --sandbox
+</code></pre>
+
+<p>Grab a bite to eat or a cup of&nbsp;tea</p>
+<p>Now while you are still in&nbsp;~/pypy-1.4.1-src/pypy/translator/goal</p>
+<pre><code>&#36; sudo ln -s &grave;pwd&grave;../sandbox/pypy_interact.py /usr/local/bin/pypy_interact.py </code></pre>
+
+<p>Go&nbsp;home!</p>
+<pre><code>&#36; cd 
+</code></pre>
+
+<p>Make a symlink of the source to&nbsp;/opt</p>
+<pre><code>&#36; sudo ln -s &grave;pwd&grave;/pypy-1.4.1-src/ /opt/pypy-sandbox </code></pre>
+
+<p>Now let&#8217;s test&nbsp;it&#8230;</p>
+<p>Should see prompt and don&#8217;t go further if you&nbsp;don&#8217;t</p>
+<pre><code>&#36; pypy_interact.py /opt/pypy-sandbox/pypy/translator/goal/pypy-c
+</code></pre>
+
+<p>Now let&#8217;s test the sandbox! Make a dummy file and put it in the virutal tmp&nbsp;folder</p>
+<pre><code>&#36; mkdir ~/virtualtmp
+&#36; echo Good day Sire! &gt; ~/virtualtmp/greetings.txt
+</code></pre>
+
+<p>Specify the ~/virtualtmp for /tmp in the&nbsp;sandbox</p>
+<p>Note: the &#8212;tmp option is always relative to the prompt regardless of absolute
+paths put there. So &#8220;/some/path/&#8221; is not from root and &#8220;~/a/path&#8221; is not from
+home. It&#8217;s all relative to the&nbsp;prompt.</p>
+<pre><code>&#36; pypy_interact.py --tmp=virtualtmp /opt/pypy-sandbox/pypy/translator/goal/pypy-c </code></pre>
+
+<p>Note: you&#8217;ll see logging text as well, output will be in there somewhere&nbsp;;)</p>
+<pre><code>&gt;&gt;&gt;&gt; f = open('/tmp/greetings.txt')
+&gt;&gt;&gt;&gt; f.read()
+'Good day Sire!\\n'
+</code></pre>
+
+<p>Let&#8217;s try opening it to write
+But <span class="caps">NO</span>! you&nbsp;cannot!</p>
+<pre><code>&gt;&gt;&gt;&gt; f = open('/tmp/greetings.txt', 'r+')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+IOError: [Errno 1] Operation not permitted: '/tmp/greetings.txt'
+</code></pre>
+
+<p>[crtl+c to exit]
+They suggest installing ledit to have a saner&nbsp;prompt</p>
+<pre class="bash"><code>&#36; sudo apt-get install ledit
+&#36; ledit python -u /usr/local/bin/pypy_interact.py --tmp=virtualtmp /opt/pypy-sandbox/pypy/translator/goal/pypy-cp
+</code></pre></article>          </section>
+      </div>
+      </div> <!--! end of #container -->
+  <footer>
+      Powered by <a href="http://ringce.com/hyde">hyde</a>.
+  </footer>
+      <!-- Javascript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.5.1.min.js">\x3C/script>')</script>
+  
+    
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+      
+  </body>
+</html>
