@@ -7,10 +7,33 @@
         <link href="/"/>
     
         
-    <updated>2011-04-19T10:15:10Z</updated>
+    <updated>2011-04-19T22:15:20Z</updated>
 
     <id>/blog/atom.xml/</id>
 
+            <entry>
+            <title type="html">PYPY sandbox for safe execution of arbitrary python code [PART 2]</title>
+            <author><name>Lakshmi Vyasarajan</name></author>
+            <link href="/blog/python-sandbox-with-pypy-part2.html"/>
+            <updated>2011-04-18T10:57:00Z</updated>
+            <published>2011-04-18T10:57:00Z</published>
+            <id>/blog/python-sandbox-with-pypy-part2.html</id>
+                        <category   scheme="/blog/tags"
+                        term="pypy"
+                        label="Pypy" />
+                        <category   scheme="/blog/tags"
+                        term="python"
+                        label="Python" />
+                        <category   scheme="/blog/tags"
+                        term="sandbox"
+                        label="Sandbox" />
+            
+            <content type="html">
+                                &lt;p&gt;&lt;a href=&#34;/blog/python-sandbox-with-pypy.html&#34;&gt;Last post&lt;/a&gt; was setting up and translating Pypy to make a sandboxed python prompt
+that had it&amp;#8217;s own virtual /tmp and no system&amp;nbsp;calls.&lt;/p&gt;
+&lt;p&gt;Now we&amp;#8217;ll take it a step farther and wrap it in normal python and run untrusted
+python within the sandbox programmatically.&amp;nbsp;Stuff&lt;/p&gt;            </content>
+        </entry>
             <entry>
             <title type="html">PYPY sandbox for safe execution of arbitrary python code</title>
             <author><name>Lakshmi Vyasarajan</name></author>
@@ -32,9 +55,9 @@
                                 &lt;p&gt;So I wanted to run some untrusted code. Javascript looked good because it could
 run in the browser (a natural sandbox). But I needed it to run server side&amp;nbsp;too. &lt;/p&gt;
 &lt;p&gt;Pypy popped up on a few sites but it was a bit unclear on the use case for it at
-first. But this &lt;a href=&#34;http://pypy.org/features.html#sandboxing&#34;&gt;helped&lt;/a&gt;. Plus, I like
+first. But &lt;a href=&#34;http://pypy.org/features.html#sandboxing&#34;&gt;this helped&lt;/a&gt;. Plus, I like
 python :)
-So here is who to install it on ubuntu. A lot of help came from &lt;a href=&#34;http://www.stephendiehl.com/?p=295&#34;&gt;this&amp;nbsp;dude&lt;/a&gt; &lt;/p&gt;
+So here is how to install it on ubuntu. A lot of help came from &lt;a href=&#34;http://www.stephendiehl.com/?p=295&#34;&gt;this&amp;nbsp;dude&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;I was on his site and &lt;a href=&#34;http://pypy.org/download.html#translate&#34;&gt;here&lt;/a&gt; every day for a&amp;nbsp;week.&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;&amp;#36; sudo apt-get install \                                                                                                                                            
 gcc make python-dev libffi-dev pkg-config \
@@ -43,23 +66,37 @@ libssl-dev libgc-dev python-sphinx python-greenlet
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3&gt;Get the source and start the translation&amp;nbsp;process&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;What is &amp;#8220;translating&amp;#8221;?&lt;/strong&gt;
-It&amp;#8217;s the process of compiling code written in
+&lt;p&gt;&lt;strong&gt;What is&amp;nbsp;&amp;#8220;translating&amp;#8221;?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;#8217;s the process of compiling code written in
 &lt;a href=&#34;http://code.google.com/p/rpython/&#34;&gt;RPython&lt;/a&gt; (a statically typed subset of
-Python) to the target platform wich is by default&amp;nbsp;C.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;why do we need to do that?&lt;/strong&gt;
-This goes back to &lt;a href=&#34;http://codespeak.net/pypy/dist/pypy/doc/getting-started.html#what-is-pypy&#34;&gt;what Pypy
-is&lt;/a&gt;.
+Python) to the target platform which is by default&amp;nbsp;C.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Why do we need to do&amp;nbsp;that?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This goes back to &lt;a href=&#34;http://codespeak.net/pypy/dist/pypy/doc/getting-started.html#what-is-pypy&#34;&gt;what Pypy is&lt;/a&gt;.
 To quote: PyPy is an implementation of the Python programming language written
-in Python itself. So combine python written in python and a compiler for python we
-bet the ability to compile python code to native C speeds.&amp;nbsp;:)&lt;/p&gt;
+in Python itself. So combine python written in rpython and a compiler for rpython we
+get the ability to compile python code to native C speeds.&amp;nbsp;:)&lt;/p&gt;
+&lt;p&gt;There are several options you get when doing the translation process, in this
+case we need &lt;a href=&#34;http://codespeak.net/pypy/dist/pypy/doc/sandbox.html&#34;&gt;&amp;#8212;sandbox&lt;/a&gt;.
+This means that all calls to external libraries or os
+calls are passed through an external process that enforces the sandbox. Also the
+C code is not segfaultable. The only thing that is availble outside of pure
+python is a virtual tmp folder of your specification. And that /tmp folder is readonly to
+the program. It&amp;#8217;s like&amp;nbsp;Inception.*&lt;/p&gt;
+&lt;p&gt;* &amp;lt;tangent&amp;gt; I want to run &amp;#8220;eval/exec&amp;#8221; in the sandbox and that would &lt;strong&gt;really&lt;/strong&gt;
+be like&amp;nbsp;Inception.&amp;lt;/tangent&amp;gt;&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;&amp;#36; wget http://pypy.org/download/pypy-1.4.1-src.tar.bz2
 &amp;#36; tar -jxvf  ./pypy-1.4.1-src.tar.bz2
 &amp;#36; cd ./pypy-1.4.1-src/pypy/translator/goal
 &amp;#36; python translate.py --sandbox
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Grab a bite to eat or a cup of&amp;nbsp;tea&lt;/p&gt;
+&lt;p&gt;Grab a bite to eat or a cup of tea and enjoy the mandelbrot&amp;nbsp;fractals.&lt;/p&gt;
+&lt;p&gt;Read &lt;a href=&#34;http://codespeak.net/pypy/dist/pypy/doc/translation.html#overview&#34;&gt;what translation is doing&lt;/a&gt; while
+you&amp;nbsp;wait.&lt;/p&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;p&gt;.&lt;/p&gt;
 &lt;p&gt;Now while you are still in&amp;nbsp;~/pypy-1.4.1-src/pypy/translator/goal&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;#36; sudo ln -s &amp;grave;pwd&amp;grave;../sandbox/pypy_interact.py /usr/local/bin/pypy_interact.py &lt;/code&gt;&lt;/pre&gt;
 
@@ -76,6 +113,7 @@ bet the ability to compile python code to native C speeds.&amp;nbsp;:)&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now let&amp;#8217;s test the sandbox! Make a dummy file and put it in the virutal tmp&amp;nbsp;folder&lt;/p&gt;
+&lt;p&gt;This ./virtualtmp &lt;strong&gt;and it&amp;#8217;s contents&lt;/strong&gt; will become /tmp to the sandboxed&amp;nbsp;interperter.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;#36; mkdir ~/virtualtmp
 &amp;#36; echo Good day Sire! &amp;gt; ~/virtualtmp/greetings.txt
 &lt;/code&gt;&lt;/pre&gt;
@@ -104,6 +142,8 @@ IOError: [Errno 1] Operation not permitted: &#39;/tmp/greetings.txt&#39;
 They suggest installing ledit to have a saner&amp;nbsp;prompt&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;&amp;#36; sudo apt-get install ledit
 &amp;#36; ledit python -u /usr/local/bin/pypy_interact.py --tmp=virtualtmp /opt/pypy-sandbox/pypy/translator/goal/pypy-cp
-&lt;/code&gt;&lt;/pre&gt;            </content>
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thanks to JuanCarlos for proofreading skillz and Norm for feedback as positive as&amp;nbsp;possible.&lt;/p&gt;            </content>
         </entry>
     </feed>
