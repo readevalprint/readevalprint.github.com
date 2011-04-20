@@ -1,0 +1,28 @@
+---
+title: PYPY sandbox for safe execution of arbitrary python code [PART 2]
+description: > 
+        Yo dawg! I heard you like codez! So I put a compiler in your code so you can code while you're coding.
+created: !!timestamp '2011-04-18 10:57:00'
+tags:
+    - pypy
+    - python
+    - sandbox
+---
+{#
+{% mark image -%}
+![Yo dawg!]([[!!images/code_in_your_codes.jpg]])
+{%- endmark %}
+
+#}
+
+{% mark excerpt -%}
+[Last post](/blog/python-sandbox-with-pypy.html) was setting up and translating Pypy to make a sandboxed python prompt
+that had it's own virtual /tmp and no system calls.
+
+Now we'll take it a step farther and wrap it in normal python and run untrusted
+python within the sandbox programmatically.
+
+
+{%- endmark %}
+
+

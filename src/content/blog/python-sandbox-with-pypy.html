@@ -20,12 +20,12 @@ So I wanted to run some untrusted code. Javascript looked good because it could
 run in the browser (a natural sandbox). But I needed it to run server side too. 
 
 Pypy popped up on a few sites but it was a bit unclear on the use case for it at
-first. But this [helped](http://pypy.org/features.html#sandboxing). Plus, I like
+first. But [this helped](http://pypy.org/features.html#sandboxing). Plus, I like
 python :)
 
 {%- endmark %}
 
-So here is who to install it on ubuntu. A lot of help came from [this dude](http://www.stephendiehl.com/?p=295) 
+So here is how to install it on ubuntu. A lot of help came from [this dude](http://www.stephendiehl.com/?p=295) 
 
 I was on his site and [here](http://pypy.org/download.html#translate) every day for a
 week.
@@ -56,7 +56,7 @@ There are several options you get when doing the translation process, in this
 case we need [--sandbox](http://codespeak.net/pypy/dist/pypy/doc/sandbox.html).
 This means that all calls to external libraries or os
 calls are passed through an external process that enforces the sandbox. Also the
-C code is not segfaultable. The only this that is availble outside of pure
+C code is not segfaultable. The only thing that is availble outside of pure
 python is a virtual tmp folder of your specification. And that /tmp folder is readonly to
 the program. It's like Inception.*
 
@@ -72,6 +72,9 @@ be like Inception.&lt;/tangent&gt;
 </code></pre>
 
 Grab a bite to eat or a cup of tea and enjoy the mandelbrot fractals.
+
+Read [what translation is doing](http://codespeak.net/pypy/dist/pypy/doc/translation.html#overview) while
+you wait.
 
 .
 
@@ -141,4 +144,5 @@ They suggest installing ledit to have a saner prompt
 &#36; ledit python -u /usr/local/bin/pypy_interact.py --tmp=virtualtmp /opt/pypy-sandbox/pypy/translator/goal/pypy-cp
 </code></pre>
 
-Thanks to JuanCarlos for editing skillz
+Thanks to JuanCarlos for proofreading skillz and Norm for feedback as positive as
+possible.

@@ -87,9 +87,9 @@
           <article class="post">
 <nav class="post_nav">
 <a class="backlink" href="/blog">Back to list</a>
-<a class="prev disabled"
-    title=""
-    >
+<a class="prev"
+    title="PYPY sandbox for safe execution of arbitrary python code [PART 2]"
+        href="/blog/python-sandbox-with-pypy-part2.html">
     Previous
 </a>
 
@@ -145,9 +145,9 @@
 <p>So I wanted to run some untrusted code. Javascript looked good because it could
 run in the browser (a natural sandbox). But I needed it to run server side&nbsp;too. </p>
 <p>Pypy popped up on a few sites but it was a bit unclear on the use case for it at
-first. But this <a href="http://pypy.org/features.html#sandboxing">helped</a>. Plus, I like
+first. But <a href="http://pypy.org/features.html#sandboxing">this helped</a>. Plus, I like
 python :)
-So here is who to install it on ubuntu. A lot of help came from <a href="http://www.stephendiehl.com/?p=295">this&nbsp;dude</a> </p>
+So here is how to install it on ubuntu. A lot of help came from <a href="http://www.stephendiehl.com/?p=295">this&nbsp;dude</a> </p>
 <p>I was on his site and <a href="http://pypy.org/download.html#translate">here</a> every day for a&nbsp;week.</p>
 <pre class="bash"><code>&#36; sudo apt-get install \                                                                                                                                            
 gcc make python-dev libffi-dev pkg-config \
@@ -169,7 +169,7 @@ get the ability to compile python code to native C speeds.&nbsp;:)</p>
 case we need <a href="http://codespeak.net/pypy/dist/pypy/doc/sandbox.html">&#8212;sandbox</a>.
 This means that all calls to external libraries or os
 calls are passed through an external process that enforces the sandbox. Also the
-C code is not segfaultable. The only this that is availble outside of pure
+C code is not segfaultable. The only thing that is availble outside of pure
 python is a virtual tmp folder of your specification. And that /tmp folder is readonly to
 the program. It&#8217;s like&nbsp;Inception.*</p>
 <p>* &lt;tangent&gt; I want to run &#8220;eval/exec&#8221; in the sandbox and that would <strong>really</strong>
@@ -181,6 +181,8 @@ be like&nbsp;Inception.&lt;/tangent&gt;</p>
 </code></pre>
 
 <p>Grab a bite to eat or a cup of tea and enjoy the mandelbrot&nbsp;fractals.</p>
+<p>Read <a href="http://codespeak.net/pypy/dist/pypy/doc/translation.html#overview">what translation is doing</a> while
+you&nbsp;wait.</p>
 <p>.</p>
 <p>.</p>
 <p>.</p>
@@ -232,7 +234,7 @@ They suggest installing ledit to have a saner&nbsp;prompt</p>
 &#36; ledit python -u /usr/local/bin/pypy_interact.py --tmp=virtualtmp /opt/pypy-sandbox/pypy/translator/goal/pypy-cp
 </code></pre>
 
-<p>Thanks to JuanCarlos for editing&nbsp;skillz</p></article>          </section>
+<p>Thanks to JuanCarlos for proofreading skillz and Norm for feedback as positive as&nbsp;possible.</p></article>          </section>
       </div>
       </div> <!--! end of #container -->
   <footer>
