@@ -149,12 +149,13 @@ first. But <a href="http://pypy.org/features.html#sandboxing">this helped</a>. P
 python :)
 So here is how to install it on ubuntu. A lot of help came from <a href="http://www.stephendiehl.com/?p=295">this&nbsp;dude</a> </p>
 <p>I was on his site and <a href="http://pypy.org/download.html#translate">here</a> every day for a&nbsp;week.</p>
-<pre class="bash"><code>&#36; sudo apt-get install \                                                                                                                                            
-gcc make python-dev libffi-dev pkg-config \
-libz-dev libbz2-dev libncurses-dev libexpat1-dev \
+<p>[<span class="caps">UPDATE</span> April 19: <a href="http://readevalprint.github.com/blog/python-sandbox-with-pypy-part2.html">Part 2</a>
+for sane output in a normal python wrapper]
+<pre class="bash"><code>&#36; sudo apt-get install                                                                                                                                           <br />
+gcc make python-dev libffi-dev pkg-config 
+libz-dev libbz2-dev libncurses-dev libexpat1-dev 
 libssl-dev libgc-dev python-sphinx python-greenlet
-</code></pre>
-
+</code></pre></p>
 <h3>Get the source and start the translation&nbsp;process</h3>
 <p><strong>What is&nbsp;&#8220;translating&#8221;?</strong></p>
 <p>It&#8217;s the process of compiling code written in
