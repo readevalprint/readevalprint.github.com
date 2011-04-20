@@ -12,7 +12,7 @@ description: It's what I do.
 {{ render_excerpt(post, 'post') }}
 
 <a class="button white medium"
-    href="{{ content_url(latest.url) }}">Read more&hellip;</a>
+    href="{{ content_url(post.url) }}">Read more&hellip;</a>
 
 {% endfor -%}
 </section>
