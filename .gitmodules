@@ -1,0 +1,3 @@
+[submodule "django-statomatic"]
+	path = django-statomatic
+	url = /home/tim/django-statomatic/

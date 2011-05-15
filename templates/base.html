@@ -1,9 +1,11 @@
 <html>
-<head><title>ReadEvalPrint</title></head>
-<script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
-<link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css" />
-<script>hljs.initHighlightingOnLoad();</script>
-<style> 
+    <head><title>{% block title %}ReadEvalPrint{% endblock title %}</title></head>
+    <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+    <link rel="stylesheet"
+    href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <style> 
         body {
             background-color: #202020;
             color: #DDDDDD;
@@ -53,18 +55,16 @@
         footer {
             font-size: 1.3em;
         } 
-    </style>
-<body>
-<header>
-<h1><a href="/">ReadEvalPrint</a></h1>
-<h2>Code: it pays the bills.</h2>
-</header>
-<section class="md"><h3>Projects</h3>
-<p><a href="/mini-django/">mini-django</a>: Single file django project for instant gratification.</p>
-<p><a href="/django-statomatic/">django-statomatic</a>: static site generator</p>
-<h3>Posts</h3>
-<p><a href="/blog/python-sandbox-with-pypy.html">PYPY sandbox for safe execution of arbitrary python code</a></p>
-</section>
-<footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
-</body>
+    </style> 
+    <body>
+        <header>
+            {% block header %} 
+                <h1><a href='/'>ReadEvalPrint</a></h1>
+                <h2>Code: it pays the bills.</h2>
+            {% endblock header %} 
+        </header>
+        {% block content %}
+        {% endblock content %}
+        <footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
+    </body>
 </html>
