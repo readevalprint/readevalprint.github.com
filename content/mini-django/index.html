@@ -1,11 +1,13 @@
 {% extends 'blog.html'%}
 {% load markup %}
 
+
 {% block title %}
 mini-django
 {% endblock title %}
 
 {% block content %}
+
   <a href="http://github.com/readevalprint/mini-django"><img style="position:
       absolute; top: 0; right: 0; border: 0;"
       src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
@@ -64,7 +66,7 @@ Run the [mini_django.py](https://github.com/readevalprint/mini-django/blob/maste
         sys.path += (here('.'),)
         # run the development server
         from django.core import management
-        management.call_command('runserver','0.0.0.0:8000' )
+        management.execute_from_command_line() 
 
 
 Dependencies
