@@ -5,10 +5,13 @@
 PYPY sandbox for safe execution of arbitrary python code
 {% endblock title %}
 
+{% block published %}
+<time datetime="2011-05-04" pubdate="pubdate">May 4, 2011</time>
+{% endblock published %}
 
 {% block content %}
 <acticle class="md">
-UPDATE April 19: Read [Part 2](http://readevalprint.github.com/blog/python-sandbox-with-pypy-part2.html) for sane output in a normal python wrapper
+UPDATE April 19: Read [Part 2](/blog/python-sandbox-with-pypy-part2.html) for sane output in a normal python wrapper
 
 So I wanted to run some untrusted code. Javascript looked good because it could
 run in the browser (a natural sandbox). But I needed it to run server side too. 

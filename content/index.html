@@ -10,8 +10,9 @@
 
 ### Posts
 
-[PYPY sandbox for safe execution of arbitrary python code](/blog/python-sandbox-with-pypy.html)
-
+{% for post in blog_posts|dictsort:"published" %}
+{{post.published|date:"M d, Y"}} [{{post.title|default:"[no title]"}}]({{post.url}})
+{% endfor %}
 </section>
 
 {% endblock content %}

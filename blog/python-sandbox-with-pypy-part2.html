@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>
+Python Sandbox with PyPy Part 2
+</title>
+<script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+<link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css" />
+<script>hljs.initHighlightingOnLoad();</script>
+<style> 
+            body {
+                background-color: #202020;
+                color: #DDDDDD;
+                font-family: sans-serif;
+                font-size: 62.5%;
+                width:800px;
+                margin: 0 auto;
+            }
+
+            a {
+                color: #22DD22;
+            }
+            h1 a {
+                text-decoration: none;
+            }
+            a:visited {
+                color: #DD22DD;
+            }
+            code {
+                display: inline-block;
+                background-color: #333 !important;
+                font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace !important;
+
+            }
+            pre code {
+                margin: 0 0.3em 0.05em !important; 
+            }
+            p, ul, ol {
+                font-size: 2.1em;
+                line-height: 1.8em;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+
+            h1, h2, h3, footer {
+                margin: 1em 0 0 2%;
+                width: 96%;
+                line-height: .8em; 
+            }
+            h1 {font-size: 8.9em }
+            h2 {font-size: 5.5em }
+            h3 {font-size: 3.4em }
+            article {
+                font-size: smaller;
+            }
+            footer {
+                font-size: 1.3em;
+            } 
+        </style>
+<script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-1049137-4']);
+            _gaq.push(['_setDomainName', 'readevalprint.com']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+</head><head>
+<body>
+<header>
+<h2>
+
+Python Sandbox with PyPy Part 2
+
+<span style="font-size:.5em">
+    by <a href="/">ReadEvalPrint</a> on 
+<time datetime="2011-05-06" pubdate="pubdate">May 6, 2011</time>
+</span>
+</h2>
+</header>
+<article class="md"><p><a href="/blog/python-sandbox-with-pypy.html">Last post</a>
+was setting up and translating Pypy to make a sandboxed python prompt
+that had it's own virtual /tmp and no system calls.</p>
+<p>Now we'll take it a step farther and wrap it in normal python and run untrusted
+python within the sandbox programmatically.</p>
+<p>A lot of this code is based on <a href="http://www.stephendiehl.com/?p=295">this guy&#8217;s post</a>.</p>
+<pre><code>#! /usr/bin/env python
+
+# From http://readevalprint.github.com/blog/python-sandbox-with-pypy-part2.html
+
+import sys, shutil, os, tempfile
+from cStringIO import StringIO
+
+TIMEOUT = 5
+
+# I made a ramdisk because it's all temporary and faster then accessing the harddrive itself
+# $ sudo mount -t tmpfs -o size=16M tmpfs /tmp/ramdisk/
+# $ mkdir /tmp/ramdisk/virtualtmp
+tempfile.tempdir = '/tmp/ramdisk/virtualtmp/'
+
+# or use this, lame.
+# tempfile.tempdir = '/tmp/'
+
+
+# This is the symlinked dir if you're following the post 
+# http://readevalprint.github.com/blog/python-sandbox-with-pypy.html
+SANDBOX_BIN = '/opt/pypy-sandbox/pypy/translator/goal/pypy-c'
+
+sys.path += [ '/opt/pypy-sandbox']
+
+# import pypy now that it's added to the path
+from pypy.translator.sandbox import pypy_interact
+
+def exec_sandbox(code):
+    try:
+        tmpdir = tempfile.mkdtemp()
+        tmpscript = open(os.path.join(tmpdir, "script.py"),'w') # script.py is the name of the code passed in
+        tmpscript.write(code)
+        tmpscript.close()
+        sandproc = pypy_interact.PyPySandboxedProc(
+            SANDBOX_BIN,
+            #['-c', code] # un comment this and comment the next line if you want to run code directly
+            ['/tmp/script.py','--timeout',str(TIMEOUT),],
+           tmpdir # this is dir we jsut made that will become /tmp in the sandbox
+        )
+        try:
+            code_output = StringIO()
+            code_log = StringIO()
+            sandproc.interact(stdout=code_output, stderr=code_log)
+            return code_output.getvalue(), code_log.getvalue()
+        except Exception, e:
+            sandproc.kill()
+        finally:
+            sandproc.kill()
+
+        shutil.rmtree(tmpdir)
+    except Exception, e:
+        pass
+    return 'Error, could not evaluate', e
+
+code = '''
+print 'Hi there!'
+
+1/0 # watch for the line number!
+
+# Next, try to list the system files and write to one.
+'''
+out, err = exec_sandbox(code)
+print '=' *10
+print 'OUTPUT\n%s' % out
+print '=' *10
+print 'ERRORS\n%s' % err
+</code></pre>
+<p>The output would look like this:</p>
+<pre><code>==========
+OUTPUT
+Hi there!
+
+==========
+ERRORS
+Traceback (most recent call last):
+  File "app_main.py", line 53, in run_toplevel
+  File "/tmp/script.py", line 4, in &lt;module&gt;
+    1/0 # watch for the line number!
+ZeroDivisionError: integer division by zero
+[Subprocess exit code: 1]
+</code></pre>
+<p></p>
+</article>
+<footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
+</body>
+</head></html>
