@@ -77,7 +77,7 @@ Django instance diff
 </h2>
 </header>
 <article>
-<section class="md"><p>This will let you diff an object and it's current state as saved in the
+<section class="md"><p>This will let you diff an object and its current state as saved in the
 database. Or specify another arbitrary instance from a compleatly different
 model to compare it to.</p>
 <pre><code>def diff(instance1, instance2 = None):  
@@ -85,13 +85,12 @@ model to compare it to.</p>
     Returns a dictionary of tuples (old,new) for two arbitrary Django instances or an instance  
     and the current data in the database  
     '''  
-    if not instance1.pk:  
-        return {}  
-    d = {}  
     if not instance2:  
+        if not instance1.pk:  
+            return {}  # nothing to compare, dur. 
         instance2 = instance1.__class__._default_manager.filter(pk=instance1.pk).get()  
+    d = {}  
     for field in set(instance1._meta.fields + instance2._meta.fields):  
-
         value1 = getattr(instance1, field.name, None)  
         value2 = getattr(instance2, field.name, None)  
         if value1 != value2:  
@@ -116,7 +115,7 @@ In [92]: 'user' in diff(b)
 Out[92]: True
 </code></pre>
 <section class="md"><p>Or use in the <code>pre_save</code> method on your model if you only want to update
-some data or a flush a cache.</p>
+some data or flush a cache.</p>
 <p>Note: This WILL hit the database every single time if no second instance is supplied. Depending on
 your logic, you may want to query a fresh copy from the database and keep
 comparing to that.</p>
