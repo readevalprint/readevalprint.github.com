@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Find the changed fields of instances in Django</title>
+<title>Django instance diff</title>
 <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
 <link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css" />
 <script>hljs.initHighlightingOnLoad();</script>
@@ -70,8 +70,8 @@
 <body>
 <header>
 <h2>
-Find the changed fields of instances in Django
-<span style="font-size:.5em">
+Django instance diff
+<span style="font-size:.5em;display:inline-block">
     by <a href="/">ReadEvalPrint</a> on <time datetime="2011-5-19">May 19, 2011</time>
 </span>
 </h2>
@@ -100,22 +100,24 @@ model to compare it to.</p>
 </code></pre>
 <p>Some usage may include </p>
 </section>
-<pre><code class="python">In [87]: b = Band.objects.get(id = 12) 
+<pre><code class="python">In [87]: b = Bar.objects.get(id = 12) 
  
-In [88]: b.approved_by 
+In [88]: b.user
 Out[88]: &lt;user: tim="tim"&gt; 
  
 In [89]: u = User.objects.get(username='bill') 
  
-In [90]: b.approved_by = u 
+In [90]: b.user = u 
  
 In [91]: diff(b) 
-Out[91]: {'approved_by': (&lt;user: bill="bill"&gt;,&lt;user: tim="tim"&gt;)} 
+Out[91]: {'user': (&lt;user: bill="bill"&gt;,&lt;user: tim="tim"&gt;)} 
  
-In [92]: 'approved_by' in diff(b) 
+In [92]: 'user' in diff(b) 
 Out[92]: True
 </code></pre>
-<section class="md"><p>Note: This WILL hit the database every single time if no second instance is supplied. Depending on
+<section class="md"><p>Or use in the <code>pre_save</code> method on your model if you only want to update
+some data or a flush a cache.</p>
+<p>Note: This WILL hit the database every single time if no second instance is supplied. Depending on
 your logic, you may want to query a fresh copy from the database and keep
 comparing to that.</p>
 </section>
