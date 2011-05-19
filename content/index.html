@@ -10,7 +10,7 @@
 
 ### Posts
 
-{% for post in blog_posts|dictsort:"published" %}
+{% for post in blog_posts|dictsort:"published" reversed %}
 {{post.published|date:"M d, Y"}} [{{post.title|default:"[no title]"}}]({{post.url}})
 {% endfor %}
 </section>
