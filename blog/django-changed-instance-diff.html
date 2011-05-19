@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>Find the changed fields of instances in Django</title>
+<script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+<link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css" />
+<script>hljs.initHighlightingOnLoad();</script>
+<style> 
+            body {
+                background-color: #202020;
+                color: #DDDDDD;
+                font-family: sans-serif;
+                font-size: 62.5%;
+                width:800px;
+                margin: 0 auto;
+            }
+
+            a {
+                color: #22DD22;
+            }
+            h1 a {
+                text-decoration: none;
+            }
+            a:visited {
+                color: #DD22DD;
+            }
+            code {
+                display: inline-block;
+                background-color: #333 !important;
+                font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace !important;
+
+            }
+            pre code {
+                margin: 0 0.3em 0.05em !important; 
+            }
+            p, ul, ol {
+                font-size: 2.1em;
+                line-height: 1.8em;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+
+            h1, h2, h3, footer {
+                margin: 1em 0 0 2%;
+                width: 96%;
+                line-height: .8em; 
+            }
+            h1 {font-size: 8.9em }
+            h2 {font-size: 5.5em }
+            h3 {font-size: 3.4em }
+            article {
+                font-size: smaller;
+            }
+            footer {
+                font-size: 1.3em;
+            } 
+        </style>
+<script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-1049137-4']);
+            _gaq.push(['_setDomainName', 'readevalprint.com']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+</head><head>
+<body>
+<header>
+<h2>
+Find the changed fields of instances in Django
+<span style="font-size:.5em">
+    by <a href="/">ReadEvalPrint</a> on <time datetime="2011-5-16">May 19 2011</time>
+</span>
+</h2>
+</header>
+<article>
+<section class="md"><p>This will let you diff an object and it's current state as saved in the
+database. Or specify another arbitrary instance from a compleatly different
+model to compare it to.</p>
+<pre><code>def diff(instance1, instance2 = None):  
+    '''  
+    Returns a dictionary of tuples (old,new) for two arbitrary Django instances or an instance  
+    and the current data in the database  
+    '''  
+    if not instance1.pk:  
+        return {}  
+    d = {}  
+    if not instance2:  
+        instance2 = instance1.__class__._default_manager.filter(pk=instance1.pk).get()  
+    for field in set(instance1._meta.fields + instance2._meta.fields):  
+
+        value1 = getattr(instance1, field.name, None)  
+        value2 = getattr(instance2, field.name, None)  
+        if value1 != value2:  
+            d[field.name] = (value1, value2)  
+    return d
+</code></pre>
+<p>Some usage may include </p>
+</section>
+<pre><code class="python">In [87]: b = Band.objects.get(id = 12) 
+ 
+In [88]: b.approved_by 
+Out[88]: &lt;user: tim="tim"&gt; 
+ 
+In [89]: u = User.objects.get(username='bill') 
+ 
+In [90]: b.approved_by = u 
+ 
+In [91]: diff(b) 
+Out[91]: {'approved_by': (&lt;user: bill="bill"&gt;,&lt;user: tim="tim"&gt;)} 
+ 
+In [92]: 'approved_by' in diff(b) 
+Out[92]: True
+</code></pre>
+<section class="md"><p>Note: This WILL hit the database every single time if no second instance is supplied. Depending on
+your logic, you may want to query a fresh copy form the database and keep
+comparing to that.</p>
+</section>
+</article>
+<footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
+</body>
+</head></html>

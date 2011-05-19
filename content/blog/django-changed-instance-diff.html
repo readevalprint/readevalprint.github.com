@@ -1,0 +1,57 @@
+{% extends 'blog.html' %}
+
+{% block title %}Find the changed fields of instances in Django{% endblock title %}
+{% block published %}<time datetime="2011-5-16">May 19 2011</time>{% endblock %}
+{% block content %}
+<article>
+<section class="md" >
+This will let you diff an object and it's current state as saved in the
+database. Or specify another arbitrary instance from a compleatly different
+model to compare it to.
+    
+
+
+    def diff(instance1, instance2 = None):  
+        '''  
+        Returns a dictionary of tuples (old,new) for two arbitrary Django instances or an instance  
+        and the current data in the database  
+        '''  
+        if not instance1.pk:  
+            return {}  
+        d = {}  
+        if not instance2:  
+            instance2 = instance1.__class__._default_manager.filter(pk=instance1.pk).get()  
+        for field in set(instance1._meta.fields + instance2._meta.fields):  
+      
+            value1 = getattr(instance1, field.name, None)  
+            value2 = getattr(instance2, field.name, None)  
+            if value1 != value2:  
+                d[field.name] = (value1, value2)  
+        return d 
+    
+Some usage may include 
+</section>
+
+<pre><code class="python">In [87]: b = Band.objects.get(id = 12) 
+ 
+In [88]: b.approved_by 
+Out[88]: &lt;user: tim="tim"&gt; 
+ 
+In [89]: u = User.objects.get(username='bill') 
+ 
+In [90]: b.approved_by = u 
+ 
+In [91]: diff(b) 
+Out[91]: {'approved_by': (&lt;user: bill="bill"&gt;,&lt;user: tim="tim"&gt;)} 
+ 
+In [92]: 'approved_by' in diff(b) 
+Out[92]: True
+</code></pre> 
+
+<section class="md">
+Note: This WILL hit the database every single time if no second instance is supplied. Depending on
+your logic, you may want to query a fresh copy form the database and keep
+comparing to that.
+</section>
+</article>
+{% endblock %}
