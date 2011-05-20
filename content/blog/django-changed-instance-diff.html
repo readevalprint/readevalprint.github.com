@@ -8,44 +8,45 @@
 This will let you diff an object and its current state as saved in the
 database. Or specify another arbitrary instance from a compleatly different
 model to compare it to.
-    
+
+UPDATE May 20: Do not use this version. It's here for historical purposes. Check out the updated code below
 
 
-    def diff(instance1, instance2 = None):  
-        '''  
-        Returns a dictionary of tuples (old,new) for two arbitrary Django instances or an instance  
-        and the current data in the database  
-        '''  
-        if not instance2:  
-            if not instance1.pk:  
-                return {}  # nothing to compare, dur. 
-            instance2 = instance1.__class__._default_manager.filter(pk=instance1.pk).get()  
-        d = {}  
-        for field in set(instance1._meta.fields + instance2._meta.fields):  
-            value1 = getattr(instance1, field.name, None)  
-            value2 = getattr(instance2, field.name, None)  
-            if value1 != value2:  
-                d[field.name] = (value1, value2)  
-        return d 
-    
-Some usage may include 
+    def diff(instance1, instance2 = None):
+        '''
+        Returns a dictionary of tuples (old,new) for two arbitrary Django instances or an instance
+        and the current data in the database
+        '''
+        if not instance2:
+            if not instance1.pk:
+                return {}  # nothing to compare, dur.
+            instance2 = instance1.__class__._default_manager.filter(pk=instance1.pk).get()
+        d = {}
+        for field in set(instance1._meta.fields + instance2._meta.fields):
+            value1 = getattr(instance1, field.name, None)
+            value2 = getattr(instance2, field.name, None)
+            if value1 != value2:
+                d[field.name] = (value1, value2)
+        return d
+
+Some usage may include
 </section>
 
-<pre><code class="python">In [87]: b = Bar.objects.get(id = 12) 
- 
+<pre><code class="python">In [87]: b = Bar.objects.get(id = 12)
+
 In [88]: b.user
-Out[88]: &lt;user: tim="tim"&gt; 
- 
-In [89]: u = User.objects.get(username='bill') 
- 
-In [90]: b.user = u 
- 
-In [91]: diff(b) 
-Out[91]: {'user': (&lt;user: bill="bill"&gt;,&lt;user: tim="tim"&gt;)} 
- 
-In [92]: 'user' in diff(b) 
+Out[88]: &lt;user: tim="tim"&gt;
+
+In [89]: u = User.objects.get(username='bill')
+
+In [90]: b.user = u
+
+In [91]: diff(b)
+Out[91]: {'user': (&lt;user: bill="bill"&gt;,&lt;user: tim="tim"&gt;)}
+
+In [92]: 'user' in diff(b)
 Out[92]: True
-</code></pre> 
+</code></pre>
 
 <section class="md">
 Or use in the `pre_save` method on your model if you only want to update
@@ -54,6 +55,57 @@ some data or flush a cache.
 Note: This WILL hit the database every single time if no second instance is supplied. Depending on
 your logic, you may want to query a fresh copy from the database and keep
 comparing to that.
+
+
+After great feedback from Norm, I present a much more robust version.
+
+
+    #!/usr/bin/env python
+
+    class Missing:
+        pass
+
+
+    def diff(instance1, instance2=None, missing_field=None):
+        '''
+        Compares two instances and returns a dictionary of
+        the different fields and a tuple of the corrisponding values.
+
+        If a instance2 is not provided, the first instance is compared
+        against the current values in the database.
+
+        Set "missing_field" to differentiate between a field that doesn't
+        exist and a field that contains a None.
+        '''
+        if not instance2:
+            if not instance1.pk:
+                return {}  # nothing to compare, dur.
+            instance2 = instance1.__class__._default_manager.filter(pk=instance1.pk).get()
+        d = {}
+        for field in set(instance1._meta.fields + instance2._meta.fields):
+            if field.__class__.__name__ not in ['OneToOneField', 'AutoField', 'RelatedField']:
+                try:
+                    value1 = getattr(instance1, field.name, missing_field)
+                except Exception as e:
+                    value1 = e
+                try:
+                    value2 = getattr(instance2, field.name, missing_field)
+                except Exception as e:
+                    value2 = e
+                if value1 != value2:
+                    # do they break in the same way?
+                    if isinstance(value1, Exception) and isinstance(value2, Exception):
+                        if type(value1) != type(value2):
+                            # different type of exceptions
+                            d[field.name] = (value1, value2)
+                    else:
+                        # actually different values
+                        d[field.name] = (value1, value2)
+
+        return d
+
+UnitTests forthcoming...
+
 </section>
 </article>
 {% endblock %}
