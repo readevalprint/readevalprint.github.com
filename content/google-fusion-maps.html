@@ -1,0 +1,85 @@
+{% extends 'blog.html' %}
+
+{% block title %}Google Fusion Maps{% endblock title %}
+{% block published %}<time datetime="2011-8-21">Aug 21, 2011</time>{% endblock %}
+{% block content %}
+<article>
+<section class="md" >
+
+</section>
+
+    <style>
+
+        #map_canvas {
+            height: 500px; width:100%;
+            color: #000;
+            font-size: medium;
+        }
+        code {
+             width: 100%;
+        }
+
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+    <script id="js" contenteditable="true">
+        $(function(){
+            initialize();
+            $("#source")[0].innerHTML = $("#js")[0].innerHTML;
+        })
+
+        var map, info_window, layer_1, layer_2;
+        var tableid_1 = '1331423';
+        var tableid_2 = '1328970';
+        var zoom = 5;
+        var center = new google.maps.LatLng(43, -120);
+
+        function initialize() {
+          map = new google.maps.Map(document.getElementById('map_canvas'), {
+            center: center,
+            zoom: zoom,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+
+          info_window = new google.maps.InfoWindow();
+
+          layer_1 = new google.maps.FusionTablesLayer({
+            query: {
+              select: 'geometry',
+              from: tableid_1
+            },
+            map: map,
+            suppressInfoWindows: true
+          });
+          google.maps.event.addListener(layer_1, 'click', windowControl);
+
+          layer_2 = new google.maps.FusionTablesLayer({
+            query: {
+              select: 'Address',
+              from: tableid_2
+            },
+            map: map,
+            suppressInfoWindows: true
+          });
+          google.maps.event.addListener(layer_2, 'click', windowControl);
+        }
+
+        function windowControl(event) {
+          info_window.setOptions({
+            content: event.infoWindowHtml,
+            position: event.latLng,
+            pixelOffset: event.pixelOffset
+          });
+          info_window.open(map);
+        }
+    </script>
+    <div id="map_canvas">
+    </div>
+    <code><pre id="source">
+
+    </pre></code>
+
+
+</article>
+{% endblock %}
