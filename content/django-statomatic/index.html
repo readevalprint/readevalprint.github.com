@@ -1,1 +1,30 @@
-Hi
+{% extends 'base.html'%}
+{% load markup %}
+
+{% block header %}
+<h2>
+{% block title %}
+django-statomatic
+{% endblock title %}
+<span style="font-size:.5em">
+    by <a href="/">ReadEvalPrint</a>
+</span>
+</h2>
+{% endblock header %}
+
+{% block content %}
+
+  <a href="http://github.com/readevalprint/django-statomatic/"><img style="position:
+      absolute; top: 0; right: 0; border: 0;"
+      src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+      alt="Fork me on GitHub" /></a>
+
+<article class="md">
+A pure Django static site generator. Preview changes
+live with the builtin dev server.
+
+### django-statomatic
+
+</article>
+
+{% endblock %}

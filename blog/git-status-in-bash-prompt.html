@@ -1,8 +1,6 @@
 <html>
 <head>
-<title>
-django-statomatic
-</title>
+<title>Show the git status of the current repo in your bash prompt</title>
 <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
 <link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css" />
 <script>hljs.initHighlightingOnLoad();</script>
@@ -72,20 +70,45 @@ django-statomatic
 <body>
 <header>
 <h2>
-
-django-statomatic
-
-<span style="font-size:.5em">
-    by <a href="/">ReadEvalPrint</a>
+Show the git status of the current repo in your bash prompt
+<span style="font-size:.5em;display:inline-block">
+    by <a href="/">ReadEvalPrint</a> on <time datetime="2011-9-2">Oct 2, 2011</time>
 </span>
 </h2>
 </header>
-<a href="http://github.com/readevalprint/django-statomatic/"><img style="position:
-      absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-<article class="md"><p>A pure Django static site generator. Preview changes
-live with the builtin dev server.</p>
-<h3>django-statomatic</h3>
+<article>
+<section class="md"><p>Make sure you have the current version of git installed.
+In your <code>~/.bash_profile</code> add:</p>
+<pre><code>export GIT_PS1_SHOWDIRTYSTATE=1
+</code></pre>
+<p>Then after add this somewhere where your <code>PS1</code> is defined.</p>
+<pre><code>\$(__git_ps1 \"(%s)\")
+</code></pre>
+<p>Here is mine, and you can see the git
+status at the end.</p>
+<pre><code>PS1="\[\e[32m\][\u@\h]\[\e[0m\]\[\e[37m\][\t]\[\e[0m\]\n\[\e[36m\][\w]\[\e[0m\]\$(__git_ps1 \"(%s)\")&gt;"
+</code></pre>
+<p>In the screenshot the current git branch in this directory is <code>user_settings</code></p>
+</section>
+<img src="http://farm7.static.flickr.com/6057/6208176600_de418d8342_o.png" />
+<br /><br />
 </article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'readevalprint';
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    // var disqus_identifier = 'unique_dynamic_id_1234';
+    var disqus_url = 'http://readevalprint.com/blog/git-status-in-bash-prompt.html';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 <footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
 </body>
 </head></html>

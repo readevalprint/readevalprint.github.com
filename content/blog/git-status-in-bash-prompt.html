@@ -1,0 +1,30 @@
+{% extends 'blog.html' %}
+
+{% block title %}Show the git status of the current repo in your bash prompt{% endblock title %}
+{% block published %}<time datetime="2011-9-2">Oct 2, 2011</time>{% endblock %}
+{% block content %}
+<article>
+<section class="md" >
+Make sure you have the current version of git installed.
+In your `~/.bash_profile` add:
+
+    export GIT_PS1_SHOWDIRTYSTATE=1
+
+Then after add this somewhere where your `PS1` is defined.
+
+    \$(__git_ps1 \"(%s)\")
+
+Here is mine, and you can see the git
+status at the end.
+
+    PS1="\[\e[32m\][\u@\h]\[\e[0m\]\[\e[37m\][\t]\[\e[0m\]\n\[\e[36m\][\w]\[\e[0m\]\$(__git_ps1 \"(%s)\")>"
+
+
+In the screenshot the current git branch in this directory is `user_settings`
+  </section>
+
+
+  <img src="http://farm7.static.flickr.com/6057/6208176600_de418d8342_o.png" />
+  <br><br>
+</article>
+{% endblock %}
