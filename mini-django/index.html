@@ -1,21 +1,16 @@
 <html>
-<head>
-<title>
-mini-django
-</title>
-<script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
-<link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css" />
-<script>hljs.initHighlightingOnLoad();</script>
-<style>
+    <head>
+        <title>ReadEvalPrint</title>
+        <link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css">
+
+        <style>
             body {
                 background-color: #202020;
                 color: #DDDDDD;
                 font-family: sans-serif;
-                font-size: 62.5%;
                 width:800px;
                 margin: 0 auto;
             }
-
             a {
                 color: #22DD22;
             }
@@ -29,13 +24,13 @@ mini-django
                 display: inline-block;
                 background-color: #333 !important;
                 font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace !important;
-
             }
             pre code {
                 margin: 0 0.3em 0.05em !important;
             }
+            /* sizes */
             p, ul, ol {
-                font-size: 2.1em;
+                font-size: 19px;
                 line-height: 1.8em;
                 margin-left: 5%;
                 margin-right: 5%;
@@ -46,17 +41,15 @@ mini-django
                 width: 96%;
                 line-height: .8em;
             }
-            h1 {font-size: 8.9em }
-            h2 {font-size: 5.5em }
-            h3 {font-size: 3.4em }
-            article {
-                font-size: smaller;
-            }
-            footer {
-                font-size: 1.3em;
-            }
+            h1 {font-size: 51px }
+            h2 {font-size: 31px }
+            h3 {font-size: 19px }
         </style>
-<script type="text/javascript">
+
+        <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+        <script type="text/javascript">
+            hljs.initHighlightingOnLoad();
+
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-1049137-4']);
             _gaq.push(['_setDomainName', 'readevalprint.com']);
@@ -68,22 +61,25 @@ mini-django
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
-</head><head>
-<body>
-<header>
-<h2>
+    <head>
+    <body>
+        <header>
+            
+                <h1><a href='/'>ReadEvalPrint</a></h1>
+                <p>Code: it pays the <strike>bills</strike> fun.</p>
+            
+        </header>
+        
 
-mini-django
+  <a href="http://github.com/readevalprint/mini-django"><img style="position:
+      absolute; top: 0; right: 0; border: 0;"
+      src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+      alt="Fork me on GitHub" /></a>
 
-<span style="font-size:.5em">
-    by <a href="/">ReadEvalPrint</a>
-</span>
-</h2>
-</header>
-<a href="http://github.com/readevalprint/mini-django"><img style="position:
-      absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-<article class="md"><p>An entire django app in a single file. Updated from <a href="http://olifante.blogs.com/covil/2010/04/minimal-django.html">here</a> to use Django trunk. </p>
-<h2>pico</h2>
+<p>An entire django app in a single file. Updated from <a href="http://olifante.blogs.com/covil/2010/04/minimal-django.html">here</a> to use Django trunk.</p>
+<h1>Mini_django.py</h1>
+<p>An entire django app in a single file. Updated from <a href="http://olifante.blogs.com/covil/2010/04/minimal-django.html">here</a> to use Django trunk. </p>
+<h1>pico</h1>
 <p>This started off to see what the absolutely smallest requirements needed to run a Django project. Run the <a href="https://github.com/readevalprint/mini-django/blob/master/pico_django.py">pico_django.py</a> with <code>$ PYTHONPATH=. django-admin.py runserver 0.0.0.0:8000 --settings=pico_django</code> and go to http://localhost:8080</p>
 <pre><code>from django.http import HttpResponse
 from django.conf.urls.defaults import patterns
@@ -96,7 +92,7 @@ def index(request, name):
 
 urlpatterns = patterns('', (r'^(?P&lt;name&gt;\w+)?$', index))
 </code></pre>
-<h2>mini</h2>
+<h1>mini</h1>
 <p>Soon pico needed a little more spice, so it got some template loading and then because I'm lazy I made the new version directly runnable.</p>
 <p>Run the <a href="https://github.com/readevalprint/mini-django/blob/master/mini_django.py">mini_django.py</a> with <code>$ python ./micro_django.py</code> and go to http://localhost:8000/Foo</p>
 <pre><code>import os, sys
@@ -119,7 +115,7 @@ def index(request, name):
     return TemplateResponse(request, 'index.html', {'name': name})
 
 # URLS
-urlpatterns = patterns('', (r'^(?P&lt;/name&gt;&lt;name&gt;\w+)?$', index))
+urlpatterns = patterns('', (r'^(?P&lt;name&gt;\w+)?$', index))
 
 if __name__=='__main__':
     # set the ENV
@@ -127,26 +123,30 @@ if __name__=='__main__':
     sys.path += (here('.'),)
     # run the development server
     from django.core import management
-    management.execute_from_command_line()
+    management.call_command('runserver','0.0.0.0:8000' )
 </code></pre>
-<h2>Dependencies</h2>
+<h1>Dependencies</h1>
 <ul>
 <li>python</li>
 <li>django</li>
 </ul>
-<h2>Install</h2>
+<h1>Install</h1>
 <ol>
 <li>Install <a href="http://docs.djangoproject.com/en/dev/intro/install/">django</a></li>
 <li>get the <a href="https://github.com/readevalprint/mini-django/raw/master/mini_django.py">code</a> <code>wget https://github.com/readevalprint/mini-django/raw/master/mini_django.py</code></li>
 <li>run it <code>$ python ./mini_django.py</code></li>
 <li>open browser http://localhost.com/Foo</li>
 </ol>
-<h2>License</h2>
+<h1>License</h1>
 <p>As-is. Public Domain. Don't blame me.</p>
-<h2>Author</h2>
-<p>Tim Watts (tim@readevalprint.com)
-</p>
-</article>
-<footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
-</body>
-</head></html>
+<h1>Author</h1>
+<p>Tim Watts (tim@readevalprint.com)</p>
+
+
+        
+        
+
+        <footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
+
+    </body>
+</html>

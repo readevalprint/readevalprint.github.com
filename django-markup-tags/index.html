@@ -70,20 +70,61 @@
             
         </header>
         
-<h3>Projects</h3>
+
+  <a href="http://github.com/readevalprint/django-markup-tags/"><img style="position:
+      absolute; top: 0; right: 0; border: 0;"
+      src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+      alt="Fork me on GitHub" /></a>
+
+  <h1>django-markup-tags</h1>
+<p>Django-markup-tags provides Markdown, Textile, and ReST template tags as
+opposed to <a href="https://docs.djangoproject.com/en/dev/ref/contrib/markup/">filters</a>.
+Usage is simple, add <code>'markuptags'</code> to <code>INSTALLED _APPS</code> load it in the
+template like so:</p>
+<pre><code>{% markdown %}
+A First Level Header
+====================
+{% endmarkdown %}
+
+{% textile %}
+The EPA(Environmental Protection Agency) is measuring GHG(greenhouse gas) emissions.
+{% endtextile %}
+
+{% restructuredtext %}
+1) An enumerated list item
+
+2) Second item
+
+   a) Sub item
+
+         i) Sub-sub item
+
+         3) Third item
+{% endrestructuredtext %}
+</code></pre>
+<h2>INSTALLATION</h2>
+<p>Install the stable version from pypi</p>
+<p><code>$ pip install django-markup-tags</code></p>
+<p>or live on the edge</p>
+<p><code>$ pip install https://github.com/readevalprint/django-markup-tags/zipball/master</code></p>
+<p>It's that easy!</p>
+<h2>TODO</h2>
 <ul>
-<li><a href="/mini-django/">mini-django</a>: Single file django project for instant gratification.</li>
-<li><a href="/django-statomatic/">django-statomatic</a>: static site generator</li>
-<li><a href="/django-markup-tags/">django-markup-tags</a>: Markdown, Textile, and ReSt template tags (not filters)</li>
+<li>tests</li>
 </ul>
-<h3>Posts</h3>
-<ul>
-<li>Oct 02, 2011 <a href="/blog/git-status-in-bash-prompt.html">Show the git status of the current repo in your bash prompt</a> </li>
-<li>May 20, 2011 <a href="/blog/more-better-django-changed-instance-diff.html">Django instance diff, now MORE BETTER!</a> </li>
-<li>May 19, 2011 <a href="/blog/django-changed-instance-diff.html">Django instance diff</a> </li>
-<li>May 06, 2011 <a href="/blog/python-sandbox-with-pypy-part2.html">Python Sandbox with PyPy Part 2</a> </li>
-<li>May 04, 2011 <a href="/blog/python-sandbox-with-pypy.html">PYPY sandbox for safe execution of arbitrary python code</a></li>
-</ul>
+<h2>LICENSE</h2>
+<p>Copyright (c) 2011, Timothy Watts tim@readevalprint.com</p>
+<p>Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</p>
+
 
         
         

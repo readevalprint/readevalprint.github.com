@@ -1,10 +1,11 @@
 {% extends 'blog.html' %}
+{% load markuptags %}
 
 {% block title %}Django instance diff, now MORE BETTER!{% endblock title %}
 {% block published %}<time datetime="2011-5-20">May 20, 2011</time>{% endblock %}
 {% block content %}
 <article>
-<section class="md" >
+{% markdown %}
 This will let you diff an object and its current state as saved in the
 database. Or specify another arbitrary instance from a compleatly different
 model to compare it to. Updated from my [last
@@ -12,12 +13,18 @@ post](/blog/django-changed-instance-diff.html)
 
 After great feedback from Norm, I present a much more robust version.
 
+[Note: updated from comments]
+
 
     #!/usr/bin/env python
 
+    # By Tim Watts
+    # From http://readevalprint.com/blog/more-better-django-changed-instance-diff.html
+    # Updated on 9/22/2011 - Added Many2Many to supported fields
+    # Updated on 9/23/2011 - Fixed Many2Many fields
+
     class Missing:
         pass
-
 
     def diff(instance1, instance2=None, missing_field=None):
         '''
@@ -35,25 +42,41 @@ After great feedback from Norm, I present a much more robust version.
                 return {}  # nothing to compare, dur.
             instance2 = instance1.__class__._default_manager.filter(pk=instance1.pk).get()
         d = {}
-        for field in set(instance1._meta.fields + instance2._meta.fields):
-            if field.__class__.__name__ not in ['OneToOneField', 'AutoField', 'RelatedField']:
+        for name, field in set(instance1._meta._name_map.items() + instance2._meta._name_map.items()):
+            value1 = missing_field
+            value2 = missing_field
+            if field[0].__class__.__name__ == 'ManyToManyField':
                 try:
-                    value1 = getattr(instance1, field.name, missing_field)
+                    objects = getattr(instance1, name, missing_field)
+                    if objects != missing_field:
+                        value1 = list(objects.values())
                 except Exception as e:
                     value1 = e
                 try:
-                    value2 = getattr(instance2, field.name, missing_field)
+                    objects = getattr(instance2, name, missing_field)
+                    if objects != missing_field:
+                        value2 = list(objects.values())
                 except Exception as e:
                     value2 = e
-                if value1 != value2:
-                    # do they break in the same way?
-                    if isinstance(value1, Exception) and isinstance(value2, Exception):
-                        if type(value1) != type(value2):
-                            # different type of exceptions
-                            d[field.name] = (value1, value2)
-                    else:
-                        # actually different values
-                        d[field.name] = (value1, value2)
+            elif  field[0].__class__.__name__ not in ['OneToOneField', 'AutoField', 'RelatedField']:
+                try:
+                    value1 = getattr(instance1, name, missing_field)
+                except Exception as e:
+                    value1 = e
+                try:
+                    value2 = getattr(instance2, name, missing_field)
+                except Exception as e:
+                    value2 = e
+
+            if value1 != value2:
+                # do they break in the same way?
+                if isinstance(value1, Exception) and isinstance(value2, Exception):
+                    if type(value1) != type(value2):
+                        # different type of exceptions
+                        d[name] = (value1, value2)
+                else:
+                    # actually different values
+                    d[name] = (value1, value2)
 
         return d
 
@@ -64,6 +87,6 @@ your logic, you may want to query a fresh copy from the database and keep
 comparing to that.
 
 
-</section>
+{% endmarkdown %}
 </article>
 {% endblock %}

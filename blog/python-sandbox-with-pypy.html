@@ -1,21 +1,18 @@
 <html>
-<head>
-<title>
+    <head>
+        <title>
 PYPY sandbox for safe execution of arbitrary python code
 </title>
-<script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
-<link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css" />
-<script>hljs.initHighlightingOnLoad();</script>
-<style>
+        <link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css">
+
+        <style>
             body {
                 background-color: #202020;
                 color: #DDDDDD;
                 font-family: sans-serif;
-                font-size: 62.5%;
                 width:800px;
                 margin: 0 auto;
             }
-
             a {
                 color: #22DD22;
             }
@@ -29,13 +26,13 @@ PYPY sandbox for safe execution of arbitrary python code
                 display: inline-block;
                 background-color: #333 !important;
                 font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace !important;
-
             }
             pre code {
                 margin: 0 0.3em 0.05em !important;
             }
+            /* sizes */
             p, ul, ol {
-                font-size: 2.1em;
+                font-size: 19px;
                 line-height: 1.8em;
                 margin-left: 5%;
                 margin-right: 5%;
@@ -46,17 +43,15 @@ PYPY sandbox for safe execution of arbitrary python code
                 width: 96%;
                 line-height: .8em;
             }
-            h1 {font-size: 8.9em }
-            h2 {font-size: 5.5em }
-            h3 {font-size: 3.4em }
-            article {
-                font-size: smaller;
-            }
-            footer {
-                font-size: 1.3em;
-            }
+            h1 {font-size: 51px }
+            h2 {font-size: 31px }
+            h3 {font-size: 19px }
         </style>
-<script type="text/javascript">
+
+        <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+        <script type="text/javascript">
+            hljs.initHighlightingOnLoad();
+
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-1049137-4']);
             _gaq.push(['_setDomainName', 'readevalprint.com']);
@@ -68,26 +63,32 @@ PYPY sandbox for safe execution of arbitrary python code
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
-</head><head>
-<body>
-<header>
+    <head>
+    <body>
+        <header>
+            
+
+                <h1><a href='/'>ReadEvalPrint</a></h1>
+                <p>Code: it pays the <strike>bills</strike> fun.</p>
+            
 <h2>
-
+  
 PYPY sandbox for safe execution of arbitrary python code
-
-<span style="font-size:.5em;display:inline-block">
-    by <a href="/">ReadEvalPrint</a> on 
+ <br>
+  on 
 <time datetime="2011-05-04" pubdate="pubdate">May 4, 2011</time>
-</span>
+
 </h2>
-</header>
-<acticle class="md"><p>UPDATE April 19: Read <a href="/blog/python-sandbox-with-pypy-part2.html">Part 2</a> for sane output in a normal python wrapper</p>
+
+        </header>
+        
+<p>UPDATE April 19: Read <a href="/blog/python-sandbox-with-pypy-part2.html">Part 2</a> for sane output in a normal python wrapper</p>
 <p>So I wanted to run some untrusted code. Javascript looked good because it could
-run in the browser (a natural sandbox). But I needed it to run server side too. 
+run in the browser (a natural sandbox). But I needed it to run server side too.
 PyPy popped up on a few sites but it was a bit unclear on the use case for it at
 first. But <a href="http://pypy.org/features.html#sandboxing">this helped</a>. Plus, I like
 python :)</p>
-<p>So here is how to install it on ubuntu. A lot of help came from <a href="http://www.stephendiehl.com/?p=295">this dude</a> </p>
+<p>So here is how to install it on ubuntu. A lot of help came from <a href="http://www.stephendiehl.com/?p=295">this dude</a></p>
 <p>I was on his site and <a href="http://pypy.org/download.html#translate">here</a> every day for a
 week.</p>
 <pre><code>$ sudo apt-get install \
@@ -136,7 +137,7 @@ you wait.</p>
 <pre><code>$ sudo ln -s `pwd`/pypy-1.4.1-src/ /opt/pypy-sandbox
 </code></pre>
 <p>Now let's test it...</p>
-<p>Should see the prompt ">&gt;&gt;&gt;" and don't go further if you don't</p>
+<p>Should see the prompt "&gt;&gt;&gt;&gt;" and don't go further if you don't</p>
 <pre><code>$ pypy_interact.py /opt/pypy-sandbox/pypy/translator/goal/pypy-c
 </code></pre>
 <p>Now let's test the sandbox! Make a dummy file and put it in the virutal tmp folder</p>
@@ -173,9 +174,9 @@ $ ledit python -u /usr/local/bin/pypy_interact.py \
 <p>Continue to <a href="/blog/python-sandbox-with-pypy-part2.html">Part 2</a> for a wrapper in normal python that gives helpful output
 and error managment.</p>
 <p>Thanks to JuanCarlos for proofreading skillz and Norm for feedback as positive as
-possible.
-</p>
-</acticle>
+possible.</p>
+
+        
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'readevalprint';
@@ -192,6 +193,9 @@ possible.
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-<footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
-</body>
-</head></html>
+
+
+        <footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
+
+    </body>
+</html>

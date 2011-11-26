@@ -1,4 +1,5 @@
 {% extends 'blog.html'%}
+{% load markuptags %}
 
 
 {% block title %}
@@ -10,7 +11,7 @@ Python Sandbox with PyPy Part 2
 {% endblock %}
 
 {% block content %}
-<article class="md">
+{% markdown %}
 [Last post](/blog/python-sandbox-with-pypy.html)
 was setting up and translating Pypy to make a sandboxed python prompt
 that had it's own virtual /tmp and no system calls.
@@ -38,7 +39,7 @@ A lot of this code is based on [this guy&#8217;s post](http://www.stephendiehl.c
     # tempfile.tempdir = '/tmp/'
 
 
-    # This is the symlinked dir if you're following the post 
+    # This is the symlinked dir if you're following the post
     # http://readevalprint.github.com/blog/python-sandbox-with-pypy.html
     SANDBOX_BIN = '/opt/pypy-sandbox/pypy/translator/goal/pypy-c'
 
@@ -103,6 +104,6 @@ The output would look like this:
     [Subprocess exit code: 1]
 
 
-</article>
+{% endmarkdown %}
 {% endblock content %}
 

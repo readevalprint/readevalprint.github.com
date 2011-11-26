@@ -1,19 +1,16 @@
 <html>
-<head>
-<title>Show the git status of the current repo in your bash prompt</title>
-<script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
-<link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css" />
-<script>hljs.initHighlightingOnLoad();</script>
-<style>
+    <head>
+        <title>Show the git status of the current repo in your bash prompt</title>
+        <link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css">
+
+        <style>
             body {
                 background-color: #202020;
                 color: #DDDDDD;
                 font-family: sans-serif;
-                font-size: 62.5%;
                 width:800px;
                 margin: 0 auto;
             }
-
             a {
                 color: #22DD22;
             }
@@ -27,13 +24,13 @@
                 display: inline-block;
                 background-color: #333 !important;
                 font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace !important;
-
             }
             pre code {
                 margin: 0 0.3em 0.05em !important;
             }
+            /* sizes */
             p, ul, ol {
-                font-size: 2.1em;
+                font-size: 19px;
                 line-height: 1.8em;
                 margin-left: 5%;
                 margin-right: 5%;
@@ -44,17 +41,15 @@
                 width: 96%;
                 line-height: .8em;
             }
-            h1 {font-size: 8.9em }
-            h2 {font-size: 5.5em }
-            h3 {font-size: 3.4em }
-            article {
-                font-size: smaller;
-            }
-            footer {
-                font-size: 1.3em;
-            }
+            h1 {font-size: 51px }
+            h2 {font-size: 31px }
+            h3 {font-size: 19px }
         </style>
-<script type="text/javascript">
+
+        <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+        <script type="text/javascript">
+            hljs.initHighlightingOnLoad();
+
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-1049137-4']);
             _gaq.push(['_setDomainName', 'readevalprint.com']);
@@ -66,18 +61,23 @@
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
-</head><head>
-<body>
-<header>
+    <head>
+    <body>
+        <header>
+            
+
+                <h1><a href='/'>ReadEvalPrint</a></h1>
+                <p>Code: it pays the <strike>bills</strike> fun.</p>
+            
 <h2>
-Show the git status of the current repo in your bash prompt
-<span style="font-size:.5em;display:inline-block">
-    by <a href="/">ReadEvalPrint</a> on <time datetime="2011-10-2">Oct 2, 2011</time>
-</span>
+  Show the git status of the current repo in your bash prompt <br>
+  on <time datetime="2011-10-2">Oct 2, 2011</time>
 </h2>
-</header>
+
+        </header>
+        
 <article>
-<section class="md"><p>Make sure you have the current version of git installed.
+<p>Make sure you have the current version of git installed.
 In your <code>~/.bash_profile</code> add:</p>
 <pre><code>export GIT_PS1_SHOWDIRTYSTATE=1
 </code></pre>
@@ -89,10 +89,13 @@ status at the end.</p>
 <pre><code>PS1="\[\e[32m\][\u@\h]\[\e[0m\]\[\e[37m\][\t]\[\e[0m\]\n\[\e[36m\][\w]\[\e[0m\]\$(__git_ps1 \"(%s)\")&gt;"
 </code></pre>
 <p>In the screenshot the current git branch in this directory is <code>user_settings</code></p>
-</section>
-<img src="http://farm7.static.flickr.com/6057/6208176600_de418d8342_o.png" />
-<br /><br />
+
+
+  <img src="http://farm7.static.flickr.com/6057/6208176600_de418d8342_o.png" />
+  <br><br>
 </article>
+
+        
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'readevalprint';
@@ -109,6 +112,9 @@ status at the end.</p>
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-<footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
-</body>
-</head></html>
+
+
+        <footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
+
+    </body>
+</html>

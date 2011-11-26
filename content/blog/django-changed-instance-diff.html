@@ -1,10 +1,11 @@
 {% extends 'blog.html' %}
 
+{% load markuptags %}
 {% block title %}Django instance diff{% endblock title %}
 {% block published %}<time datetime="2011-5-19">May 19, 2011</time>{% endblock %}
 {% block content %}
 <article>
-<section class="md" >
+{% markdown %}
 This will let you diff an object and its current state as saved in the
 database. Or specify another arbitrary instance from a compleatly different
 model to compare it to.
@@ -31,7 +32,7 @@ out the [updated code here](/blog/more-better-django-changed-instance-diff.html)
         return d
 
 Some usage may include
-</section>
+{% endmarkdown %}
 
 <pre><code class="python">In [87]: b = Bar.objects.get(id = 12)
 
@@ -49,7 +50,7 @@ In [92]: 'user' in diff(b)
 Out[92]: True
 </code></pre>
 
-<section class="md">
+{% markdown %}
 Or use in the `pre_save` method on your model if you only want to update
 some data or flush a cache.
 
@@ -58,6 +59,6 @@ your logic, you may want to query a fresh copy from the database and keep
 comparing to that.
 
 
-</section>
+{% endmarkdown %}
 </article>
 {% endblock %}

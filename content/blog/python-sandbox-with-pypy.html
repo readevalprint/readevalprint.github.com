@@ -1,5 +1,6 @@
 {% extends "blog.html" %}
 
+{% load markuptags %}
 
 {% block title %}
 PYPY sandbox for safe execution of arbitrary python code
@@ -10,16 +11,16 @@ PYPY sandbox for safe execution of arbitrary python code
 {% endblock published %}
 
 {% block content %}
-<acticle class="md">
+{% markdown %}
 UPDATE April 19: Read [Part 2](/blog/python-sandbox-with-pypy-part2.html) for sane output in a normal python wrapper
 
 So I wanted to run some untrusted code. Javascript looked good because it could
-run in the browser (a natural sandbox). But I needed it to run server side too. 
+run in the browser (a natural sandbox). But I needed it to run server side too.
 PyPy popped up on a few sites but it was a bit unclear on the use case for it at
 first. But [this helped](http://pypy.org/features.html#sandboxing). Plus, I like
 python :)
 
-So here is how to install it on ubuntu. A lot of help came from [this dude](http://www.stephendiehl.com/?p=295) 
+So here is how to install it on ubuntu. A lot of help came from [this dude](http://www.stephendiehl.com/?p=295)
 
 I was on his site and [here](http://pypy.org/download.html#translate) every day for a
 week.
@@ -79,7 +80,7 @@ you wait.
 
 Now while you are still in ~/pypy-1.4.1-src/pypy/translator/goal
 
-    $ sudo ln -s `pwd`../sandbox/pypy_interact.py /usr/local/bin/pypy_interact.py 
+    $ sudo ln -s `pwd`../sandbox/pypy_interact.py /usr/local/bin/pypy_interact.py
 
 Go home!
 
@@ -138,5 +139,5 @@ and error managment.
 
 Thanks to JuanCarlos for proofreading skillz and Norm for feedback as positive as
 possible.
-</acticle>
+{% endmarkdown %}
 {% endblock content %}
