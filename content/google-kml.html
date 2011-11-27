@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{% load ssi from future %}
+{% load markuptags %}
+
+{% block head %}
+  <style>
+  #map_canvas {
+    width: 400px;
+    height: 400px;
+  }
+  </style>
+
+  <script src="{{ STATIC_URL }}/js/jquery-1.7.1.min.js"></script>
+  <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+{% endblock %}
+
+{% block content %}
+<script>
+var map;
+function initialize() {
+    var portland = new google.maps.LatLng(45.875696,-122.624207);
+  var myOptions = {
+    zoom: 11,
+    center: portland,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+  //var ctaLayer = new google.maps.KmlLayer('http://readevalprint.com/static/zt41_d00.kml');
+  //ctaLayer.setMap(map);
+};
+$(function(){
+  initialize();
+});
+</script>
+"{{ STATIC_URL }}zt41_d00.kml"
+<div id="map_canvas" ></div>
+
+{% endblock content %}

@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+    <head>
+        <title>ReadEvalPrint</title>
+        <link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css">
+
+        <style>
+            body {
+                background-color: #202020;
+                color: #DDDDDD;
+                font-family: sans-serif;
+                width:800px;
+                margin: 0 auto;
+            }
+            a {
+                color: #22DD22;
+            }
+            h1 a {
+                text-decoration: none;
+            }
+            a:visited {
+                color: #DD22DD;
+            }
+            code {
+                display: inline-block;
+                background-color: #333 !important;
+                font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace !important;
+            }
+            pre code {
+                margin: 0 0.3em 0.05em !important;
+            }
+            /* sizes */
+            p, ul, ol {
+                font-size: 19px;
+                line-height: 1.8em;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+
+            h1, h2, h3, footer {
+                margin: 1em 0 0 2%;
+                width: 96%;
+                line-height: .8em;
+            }
+            h1 {font-size: 51px }
+            h2 {font-size: 31px }
+            h3 {font-size: 19px }
+        </style>
+
+        
+  <style>
+  #map_canvas {
+    width: 400px;
+    height: 400px;
+  }
+  </style>
+
+  <script src="/static//js/jquery-1.7.1.min.js"></script>
+  <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+
+
+        <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+        <script type="text/javascript">
+            hljs.initHighlightingOnLoad();
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-1049137-4']);
+            _gaq.push(['_setDomainName', 'readevalprint.com']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    <head>
+    <body>
+        <header>
+            
+                <h1><a href='/'>ReadEvalPrint</a></h1>
+                <p>Code: it pays the <strike>bills</strike> fun.</p>
+            
+        </header>
+        
+<script>
+var map;
+function initialize() {
+    var portland = new google.maps.LatLng(45.875696,-122.624207);
+  var myOptions = {
+    zoom: 11,
+    center: portland,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+  //var ctaLayer = new google.maps.KmlLayer('http://readevalprint.com/static/zt41_d00.kml');
+  //ctaLayer.setMap(map);
+};
+$(function(){
+  initialize();
+});
+</script>
+"/static/zt41_d00.kml"
+<div id="map_canvas" ></div>
+
+
+        
+        
+
+        <footer> ReadEvalPrint is brought to you by Tim Watts.  </footer>
+
+    </body>
+</html>
