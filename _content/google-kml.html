@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+
+{% load ssi from future %}
+{% load markuptags %}
+
+{% block head %}
+  <style>
+  #map_canvas {
+    width: 800px;
+    height: 600px;
+  }
+  </style>
+
+  <script src="{{ STATIC_URL }}/js/jquery-1.7.1.min.js"></script>
+  <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+{% endblock %}
+
+{% block content %}
+<script>
+  var map;
+  var table = [2273377,2273499];
+
+  $(function(){
+      map = new google.maps.Map(document.getElementById('map_canvas'), {
+        center: new google.maps.LatLng(43, -120),
+        zoom: 6,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      $.each(table, function(index, tableid){
+        var layer = new google.maps.FusionTablesLayer({
+          query: {
+            select: 'geometry',
+            from: tableid
+          },
+          map: map
+        });
+      });
+  });
+</script>
+<div id="map_canvas" ></div>
+
+{% endblock content %}

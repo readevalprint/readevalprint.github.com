@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+
+{% block head %}
+  <style>
+    #owl {
+      float: left;
+    }
+    #owl #head {
+
+    }
+  </style>
+
+  <script src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
+  <script>
+    $(function(){
+      function orientationhandler(evt){
+        // For FF3.6+
+        if (!evt.gamma && !evt.beta) {
+          evt.gamma = -(evt.x * (180 / Math.PI));
+          evt.beta = -(evt.y * (180 / Math.PI));
+        }
+        var tiltLR = evt.gamma;
+        // beta is the front-to-back tilt in degrees, where front is positive
+        var tiltFB = evt.beta;
+        // use evt.gamma, evt.beta, and evt.alpha
+        // according to dev.w3.org/geo/api/spec-source-orientation
+        head.style.webkitTransform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
+        head.style.MozTransform = "rotate(" + tiltLR + "deg)";
+        head.style.transform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
+      }
+
+      var head = $("#head")[0];
+      window.addEventListener('deviceorientation',  orientationhandler, false);
+      window.addEventListener('MozOrientation',     orientationhandler, false);
+    });
+
+
+
+  </script>
+{% endblock %}
+
+{% block content %}
+  <div id="owl">
+    <img id="body" src="{{ STATIC_URL }}img/owl_body.png">
+    <img id="head" src="{{ STATIC_URL }}img/owl_head.png">
+  </div>
+  <br style="clear:both">
+{% endblock content %}

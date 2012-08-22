@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block header %}
+  {{ block.super }}
+  <h2>
+    {% block title %} {% endblock title %} on {% block published %}{% endblock%}
+  </h2>
+{% endblock header %}
+
+{% block footer %}
+{% endblock footer %}
+
+

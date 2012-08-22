@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>readevalprint</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mostly tech, and ther related blatherings.">
+    <meta name="author" content="Timothy John Watts">
+    <link rel="stylesheet" href="/static/css/github.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
+
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      .dark-grey {
+        color: #4B4B4B;
+      }
+      footer {
+        margin: 30px 0px;
+        color: #AAA;
+      }
+      pre {
+        margin: 20px;
+      }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+  <style>
+    #owl {
+      float: left;
+    }
+    #owl #head {
+
+    }
+  </style>
+
+  <script src="/static/js/jquery-1.7.1.min.js"></script>
+  <script>
+    $(function(){
+      function orientationhandler(evt){
+        // For FF3.6+
+        if (!evt.gamma && !evt.beta) {
+          evt.gamma = -(evt.x * (180 / Math.PI));
+          evt.beta = -(evt.y * (180 / Math.PI));
+        }
+        var tiltLR = evt.gamma;
+        // beta is the front-to-back tilt in degrees, where front is positive
+        var tiltFB = evt.beta;
+        // use evt.gamma, evt.beta, and evt.alpha
+        // according to dev.w3.org/geo/api/spec-source-orientation
+        head.style.webkitTransform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
+        head.style.MozTransform = "rotate(" + tiltLR + "deg)";
+        head.style.transform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
+      }
+
+      var head = $("#head")[0];
+      window.addEventListener('deviceorientation',  orientationhandler, false);
+      window.addEventListener('MozOrientation',     orientationhandler, false);
+    });
+
+
+
+  </script>
+
+
+    <script src="/static/js/highlight.min.js">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1049137-4']);
+      _gaq.push(['_setDomainName', 'readevalprint.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+     </script>
+   </head>
+   <body>
+     <div class="container">
+       <header>
+         
+           <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
+           <p>Code: it pays the <strike>bills</strike> fun.</p>
+         
+       </header>
+       
+  <div id="owl">
+    <img id="body" src="/static/img/owl_body.png">
+    <img id="head" src="/static/img/owl_head.png">
+  </div>
+  <br style="clear:both">
+
+       
+       
+
+       <footer> ReadEvalPrint is the random blatherings of <a ref="https://twitter.com/readevalprint">Timothy John Watts.</a> Enjoy yourself, it's a celebration! </footer>
+     </div>
+   </body>
+ </html>

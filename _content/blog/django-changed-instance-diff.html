@@ -1,0 +1,68 @@
+{% extends 'blog.html' %}
+
+{% load markuptags %}
+{% block title %}Django instance diff{% endblock title %}
+{% block published %}<time datetime="2011-5-19">May 19, 2011</time>{% endblock %}
+{% block content %}
+<article>
+{% markdown %}
+This will let you diff an object and its current state as saved in the
+database. Or specify another arbitrary instance from a compleatly different
+model to compare it to.
+
+<div class="alert-error alert">
+
+UPDATE May 20: Do not use this version. It's here merely for historical purposes. Check
+out the [updated code here.](/blog/more-better-django-changed-instance-diff.html)
+
+</div>
+
+
+    def diff(instance1, instance2 = None):
+        '''
+        Returns a dictionary of tuples (old,new) for two arbitrary Django instances or an instance
+        and the current data in the database
+        '''
+        if not instance2:
+            if not instance1.pk:
+                return {}  # nothing to compare, dur.
+            instance2 = instance1.__class__._default_manager.filter(pk=instance1.pk).get()
+        d = {}
+        for field in set(instance1._meta.fields + instance2._meta.fields):
+            value1 = getattr(instance1, field.name, None)
+            value2 = getattr(instance2, field.name, None)
+            if value1 != value2:
+                d[field.name] = (value1, value2)
+        return d
+
+Some usage may include
+{% endmarkdown %}
+
+<pre><code class="python">In [87]: b = Bar.objects.get(id = 12)
+
+In [88]: b.user
+Out[88]: &lt;user: tim="tim"&gt;
+
+In [89]: u = User.objects.get(username='bill')
+
+In [90]: b.user = u
+
+In [91]: diff(b)
+Out[91]: {'user': (&lt;user: bill="bill"&gt;,&lt;user: tim="tim"&gt;)}
+
+In [92]: 'user' in diff(b)
+Out[92]: True
+</code></pre>
+
+{% markdown %}
+Or use in the `pre_save` method on your model if you only want to update
+some data or flush a cache.
+
+Note: This WILL hit the database every single time if no second instance is supplied. Depending on
+your logic, you may want to query a fresh copy from the database and keep
+comparing to that.
+
+
+{% endmarkdown %}
+</article>
+{% endblock %}

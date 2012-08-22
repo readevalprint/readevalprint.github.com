@@ -1,0 +1,17 @@
+{% extends 'blog.html' %}
+
+{% load markuptags %}
+
+{% block title %}
+Fun times with Makerbot
+{% endblock title %}
+
+{% block published %}
+  <time datetime="2012-8-2">Aug 2, 2012</time>
+{% endblock %}
+
+{% block content %}
+  I got a Makerbot!
+  <br>
+  <img src="{{ STATIC_URL }}img/P8020801.JPG"/>
+{% endblock %}
