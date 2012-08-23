@@ -21,7 +21,17 @@ This lead to a bit of head scratching and hurruffing until I got the great idea
 to use a 4 AA pack and solder an extra lead to the 3rd battery for the PICAXE for
 3x1.5v = 4.5v and share the common ground wiht the mp3 module for the TTL communication.
 
-Simplified code to play the first song.
+Note that the songs are played based on their order in the FAT pointers, sooo
+after much head banging it turns out that the order they are loaded on the SD card
+and any other hidden files will affect the playback order. [more info..](http://www.picaxeforum.co.uk/archive/index.php/t-16353.html)
+
+tl;dr download [fatsort (*nix)](http://fatsort.sourceforge.net/) or [drivesort (windows)](http://www.anerty.net/software/file/DriveSort.php)
+and remove all hidden files before runing it.
+
+I wish I had read this before. But now you can :)
+
+
+Simplified code to play the only song 1:
 <code class="no-highlight">
   <pre>
 symbol PLAY_BTN = C.1
