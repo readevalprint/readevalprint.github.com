@@ -35,9 +35,8 @@ PYPY sandbox for safe execution of arbitrary python code
     
     
 
-    <script src="/static/js/highlight.min.js">
-    </script>
-    <script type="text/javascript">
+    <script src="/static/js/highlight.min.js"> </script>
+    <script>
       hljs.initHighlightingOnLoad();
 
       var _gaq = _gaq || [];
@@ -45,31 +44,33 @@ PYPY sandbox for safe execution of arbitrary python code
       _gaq.push(['_setDomainName', 'readevalprint.com']);
       _gaq.push(['_trackPageview']);
 
-      (function() {
-       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-       })();
-     </script>
-   </head>
-   <body>
-     <div class="container">
-       <header>
-         
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    </script>
+  </head>
+  <body class="container">
+       <div class="span7 offset2">
+        <header>
+          
   
-           <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
-           <p>Code: it pays the <strike>bills</strike> fun.</p>
-         
+            <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
+            <p>Code: it pays the <strike>bills</strike> fun.</p>
+          
+  
+<time datetime="2011-05-04" pubdate="pubdate">May 4, 2011</time>
+
   <h2>
     
 PYPY sandbox for safe execution of arbitrary python code
- on 
-<time datetime="2011-05-04" pubdate="pubdate">May 4, 2011</time>
 
   </h2>
 
-       </header>
-       
+
+        </header>
+        
 <p>UPDATE April 19: Read <a href="/blog/python-sandbox-with-pypy-part2.html">Part 2</a> for sane output in a normal python wrapper</p>
 <p>So I wanted to run some untrusted code. Javascript looked good because it could
 run in the browser (a natural sandbox). But I needed it to run server side too.
@@ -164,10 +165,12 @@ and error managment.</p>
 <p>Thanks to JuanCarlos for proofreading skillz and Norm for feedback as positive as
 possible.</p>
 
-       
+        
 
 
-       <footer> ReadEvalPrint is the random blatherings of <a ref="https://twitter.com/readevalprint">Timothy John Watts.</a> Enjoy yourself, it's a celebration! </footer>
-     </div>
-   </body>
- </html>
+        <footer> ReadEvalPrint is the random blatherings of
+          <a href="https://twitter.com/readevalprint">@readevalprint</a>. Enjoy yourself, it's a celebration!
+        </footer>
+      </div>
+    </body>
+  </html>

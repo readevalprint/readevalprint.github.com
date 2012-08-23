@@ -2,9 +2,11 @@
 
 {% block header %}
   {{ block.super }}
+  {% block published %}{% endblock%}
   <h2>
-    {% block title %} {% endblock title %} on {% block published %}{% endblock%}
+    {% block title %} {% endblock title %}
   </h2>
+
 {% endblock header %}
 
 {% block footer %}

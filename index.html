@@ -33,9 +33,8 @@
     
     
 
-    <script src="/static/js/highlight.min.js">
-    </script>
-    <script type="text/javascript">
+    <script src="/static/js/highlight.min.js"> </script>
+    <script>
       hljs.initHighlightingOnLoad();
 
       var _gaq = _gaq || [];
@@ -43,22 +42,22 @@
       _gaq.push(['_setDomainName', 'readevalprint.com']);
       _gaq.push(['_trackPageview']);
 
-      (function() {
-       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-       })();
-     </script>
-   </head>
-   <body>
-     <div class="container">
-       <header>
-         
-           <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
-           <p>Code: it pays the <strike>bills</strike> fun.</p>
-         
-       </header>
-       
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    </script>
+  </head>
+  <body class="container">
+       <div class="span7 offset2">
+        <header>
+          
+            <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
+            <p>Code: it pays the <strike>bills</strike> fun.</p>
+          
+        </header>
+        
 <h3>Projects</h3>
 <ul>
 <li><a href="/mini-django/">mini-django</a>: Single file django project for instant gratification.</li>
@@ -67,6 +66,7 @@
 </ul>
 <h3>Posts</h3>
 <ul>
+<li>Aug 21, 2012 <a href="/blog/current-state-of-affairs.html">What I should have been blogging about this past year</a> </li>
 <li>Aug 02, 2012 <a href="/blog/makerbot.html">Fun times with Makerbot</a> </li>
 <li>Oct 02, 2011 <a href="/blog/git-status-in-bash-prompt.html">Show the git status of the current repo in your bash prompt</a> </li>
 <li>May 20, 2011 <a href="/blog/more-better-django-changed-instance-diff.html">Django instance diff, now MORE BETTER!</a> </li>
@@ -75,10 +75,12 @@
 <li>May 04, 2011 <a href="/blog/python-sandbox-with-pypy.html">PYPY sandbox for safe execution of arbitrary python code</a></li>
 </ul>
 
-       
-       
+        
+        
 
-       <footer> ReadEvalPrint is the random blatherings of <a ref="https://twitter.com/readevalprint">Timothy John Watts.</a> Enjoy yourself, it's a celebration! </footer>
-     </div>
-   </body>
- </html>
+        <footer> ReadEvalPrint is the random blatherings of
+          <a href="https://twitter.com/readevalprint">@readevalprint</a>. Enjoy yourself, it's a celebration!
+        </footer>
+      </div>
+    </body>
+  </html>

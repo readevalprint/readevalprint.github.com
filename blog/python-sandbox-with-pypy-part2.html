@@ -35,9 +35,8 @@ Python Sandbox with PyPy Part 2
     
     
 
-    <script src="/static/js/highlight.min.js">
-    </script>
-    <script type="text/javascript">
+    <script src="/static/js/highlight.min.js"> </script>
+    <script>
       hljs.initHighlightingOnLoad();
 
       var _gaq = _gaq || [];
@@ -45,31 +44,33 @@ Python Sandbox with PyPy Part 2
       _gaq.push(['_setDomainName', 'readevalprint.com']);
       _gaq.push(['_trackPageview']);
 
-      (function() {
-       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-       })();
-     </script>
-   </head>
-   <body>
-     <div class="container">
-       <header>
-         
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    </script>
+  </head>
+  <body class="container">
+       <div class="span7 offset2">
+        <header>
+          
   
-           <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
-           <p>Code: it pays the <strike>bills</strike> fun.</p>
-         
+            <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
+            <p>Code: it pays the <strike>bills</strike> fun.</p>
+          
+  
+<time datetime="2011-05-06" pubdate="pubdate">May 6, 2011</time>
+
   <h2>
     
 Python Sandbox with PyPy Part 2
- on 
-<time datetime="2011-05-06" pubdate="pubdate">May 6, 2011</time>
 
   </h2>
 
-       </header>
-       
+
+        </header>
+        
 <p><a href="/blog/python-sandbox-with-pypy.html">Last post</a>
 was setting up and translating Pypy to make a sandboxed python prompt
 that had it's own virtual /tmp and no system calls.</p>
@@ -157,10 +158,12 @@ ZeroDivisionError: integer division by zero
 [Subprocess exit code: 1]
 </code></pre>
 
-       
+        
 
 
-       <footer> ReadEvalPrint is the random blatherings of <a ref="https://twitter.com/readevalprint">Timothy John Watts.</a> Enjoy yourself, it's a celebration! </footer>
-     </div>
-   </body>
- </html>
+        <footer> ReadEvalPrint is the random blatherings of
+          <a href="https://twitter.com/readevalprint">@readevalprint</a>. Enjoy yourself, it's a celebration!
+        </footer>
+      </div>
+    </body>
+  </html>
