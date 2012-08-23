@@ -1,0 +1,53 @@
+{% extends 'blog.html' %}
+
+{% load markuptags %}
+
+{% block title %}
+  Adventures with PICAXE and MDFLY MP3 Player Module RS232
+{% endblock title %}
+
+{% block published %}
+  <time datetime="2012-08-23">Thur, Aug 23 2012</time>
+{% endblock %}
+
+{% block content %}
+  {% markdown %}
+  <span class="span3">![Me soldering the PICAXE dev board](/static/img/soldering-picaxe.jpg)</span>
+  <span class="span3">![SD Card MP3 Player Module RS232-TTL](/static/img/RS232.jpg)</span>
+  <br style="clear:both;">
+
+I found that the MP3 module need about 6v and the PICAXE needs less than 5.5v.
+This lead to a bit of head scratching and hurruffing until I got the great idea
+to use a 4 AA pack and solder an extra lead to the 3rd battery for the PICAXE for
+3x1.5v = 4.5v and share the common ground wiht the mp3 module for the TTL communication.
+
+Simplified code to play the first song.
+<code class="no-highlight">
+  <pre>
+symbol PLAY_BTN = C.1
+
+main:
+  touch PLAY_BTN, b1
+  if b1 > 128 then
+    goto play
+  endif
+  goto main
+
+play:
+  serout C.2, T4800, ($01)
+  goto release
+
+; wait untill released before accepting anymore commands
+release:
+  touch PLAY_BTN, b4
+  if b4 > 128 then
+    goto release
+  else
+    goto main
+  endif
+  </pre>
+</code>
+
+  <br style="clear:both;">
+  {% endmarkdown %}
+{% endblock %}

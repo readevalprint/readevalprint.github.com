@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
 
-    <title>readevalprint</title>
+    <title>
+  Adventures with PICAXE and MDFLY MP3 Player Module RS232
+</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mostly tech, and ther related blatherings.">
     <meta name="author" content="Timothy John Watts">
@@ -53,31 +55,56 @@
        <div class="span7 offset2">
         <header>
           
+  
             <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
             <p>Code: it pays the <strike>bills</strike> fun.</p>
           
+  
+  <time datetime="2012-08-23">Thur, Aug 23 2012</time>
+
+  <h2>
+    
+  Adventures with PICAXE and MDFLY MP3 Player Module RS232
+
+  </h2>
+
+
         </header>
         
-<h3>Projects</h3>
-<ul>
-<li><a href="/mini-django/">mini-django</a>: Single file django project for instant gratification.</li>
-<li><a href="/django-statomatic/">django-statomatic</a>: static site generator</li>
-<li><a href="/django-markup-tags/">django-markup-tags</a>: Markdown, Textile, and ReSt template tags (not filters)</li>
-</ul>
-<h3>Posts</h3>
-<ul>
-<li>Aug 23, 2012 <a href="/blog/adventures-with-picaxe-and-mp3-player-module-RS232.html">Adventures with PICAXE and MDFLY MP3 Player Module RS232</a> </li>
-<li>Aug 21, 2012 <a href="/blog/current-state-of-affairs.html">What I should have been blogging about</a> </li>
-<li>Aug 02, 2012 <a href="/blog/makerbot.html">Fun times with Makerbot</a> </li>
-<li>Oct 02, 2011 <a href="/blog/git-status-in-bash-prompt.html">Show the git status of the current repo in your bash prompt</a> </li>
-<li>May 20, 2011 <a href="/blog/more-better-django-changed-instance-diff.html">Django instance diff, now MORE BETTER!</a> </li>
-<li>May 19, 2011 <a href="/blog/django-changed-instance-diff.html">Django instance diff</a> </li>
-<li>May 06, 2011 <a href="/blog/python-sandbox-with-pypy-part2.html">Python Sandbox with PyPy Part 2</a> </li>
-<li>May 04, 2011 <a href="/blog/python-sandbox-with-pypy.html">PYPY sandbox for safe execution of arbitrary python code</a></li>
-</ul>
+  <p><span class="span3"><img alt="Me soldering the PICAXE dev board" src="/static/img/soldering-picaxe.jpg" /></span>
+  <span class="span3"><img alt="SD Card MP3 Player Module RS232-TTL" src="/static/img/RS232.jpg" /></span>
+  <br style="clear:both;"></p>
+<p>I found that the MP3 module need about 6v and the PICAXE needs less than 5.5v.
+This lead to a bit of head scratching and hurruffing until I got the great idea
+to use a 4 AA pack and solder an extra lead to the 3rd battery for the PICAXE for
+3x1.5v = 4.5v and share the common ground wiht the mp3 module for the TTL communication.</p>
+<p>Simplified code to play the first song.
+<code class="no-highlight">
+  <pre>
+symbol PLAY_BTN = C.1</p>
+<p>main:
+  touch PLAY_BTN, b1
+  if b1 &gt; 128 then
+    goto play
+  endif
+  goto main</p>
+<p>play:
+  serout C.2, T4800, ($01)
+  goto release</p>
+<p>; wait untill released before accepting anymore commands
+release:
+  touch PLAY_BTN, b4
+  if b4 &gt; 128 then
+    goto release
+  else
+    goto main
+  endif
+  </pre>
+</code></p>
+<br style="clear:both;">
 
         
-        
+
 
         <footer> ReadEvalPrint is a series of typos by
           <a href="https://twitter.com/readevalprint">@readevalprint</a>. Enjoy yourself, it's a celebration!
