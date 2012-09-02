@@ -1,0 +1,25 @@
+{% extends 'blog.html' %}
+
+{% load markuptags %}
+
+{% block title %}
+  Cartridge and Stripe for fun and profit.
+{% endblock title %}
+
+{% block published %}
+  <time datetime="2012-09-02">Sun Sep 2, 2012</time>
+{% endblock %}
+
+{% block content %}
+  {% markdown %}
+  [Mezzinine](http://mezzanine.jupo.org) is pretty awesome for a CMS. And it has a sweet
+  ecommerce system called [Cartridge](http://cartridge.jupo.org) which is also pretty awesome.
+
+  One thing missing was Stripe integration. So I set upon the task of bridging
+  that gap. On that note, I have the pleasure of introducing to you
+  [cartridge-stripe](https://github.com/readevalprint/cartridge-stripe/).
+
+  Note: Remember to serve the [checkout page and assets over SSL for PCI compliance](https://answers.stripe.com/questions/what-exactly-do-i-need-to-do-on-my-end-for-pci-compliance-through-stripe).
+
+  {% endmarkdown %}
+{% endblock %}
