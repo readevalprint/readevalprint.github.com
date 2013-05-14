@@ -1,17 +1,15 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-
-    <title>About BrowserId</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mostly typos, tech by Tim Watts.">
-    <meta name="author" content="Timothy John Watts">
-    <link rel="stylesheet" href="/static/css/github.css">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
-
-    <style>
+<head>
+<meta charset="utf-8" />
+<title>About BrowserId</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Mostly typos, tech by Tim Watts." />
+<meta name="author" content="Timothy John Watts" />
+<link rel="stylesheet" href="/static/css/github.css" />
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.css" />
+<style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
@@ -26,15 +24,11 @@
         margin: 20px;
       }
     </style>
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    
-    
-
-    <script src="/static/js/highlight.min.js"> </script>
-    <script>
+<!--[if lt IE 9]&gt;
+    &lt;script src="http://html5shim.googlecode.com/svn/trunk/html5.js"&gt;&lt;/script&gt;
+    &lt;![endif]-->
+<script src="/static/js/highlight.min.js"></script>
+<script>
       hljs.initHighlightingOnLoad();
 
       var _gaq = _gaq || [];
@@ -48,43 +42,36 @@
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(ga, s);
     </script>
-  </head>
-  <body class="container">
-       <div class="span7 offset2">
-        <header>
-          
-  
-            <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
-            <p>Code: it pays the <strike>bills</strike> fun.</p>
-          
-  <time datetime="2011-5-19">May 19, 2011</time>
-  <h2>
+</head>
+<body class="container">
+<div class="span7 offset2">
+<header>
+<h1><a href="/">read<span class="dark-grey">eval</span>print</a></h1>
+</header><p>Program or be programmed.</p>
+<time datetime="2011-5-19">May 19, 2011</time>
+<h2>
     About BrowserId
   </h2>
 
-
-        </header>
         
 Hi
 
 
     <p>A First Level Header
     ====================</p>
-
-    	<p>The <acronym title="Environmental Protection Agency">EPA</acronym> is measuring <acronym title="greenhouse gas">GHG</acronym> emissions.</p>
-
-    <?xml version="1.0" encoding="utf-8" ?>
+<p>The <acronym title="Environmental Protection Agency">EPA</acronym> is measuring <acronym title="greenhouse gas">GHG</acronym> emissions.</p>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+</div></body></html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
 <title></title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 5951 2009-05-18 18:03:10Z milde $
+:Id: $Id: html4css1.css 7514 2012-09-14 14:27:12Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
@@ -122,6 +109,10 @@ blockquote.epigraph {
 dl.docutils dd {
   margin-bottom: 0.5em }
 
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
 /* Uncomment (and remove this text!) to get bold-faced definition list terms
 dl.docutils dt {
   font-weight: bold }
@@ -148,7 +139,7 @@ div.tip p.admonition-title {
 
 div.attention p.admonition-title, div.caution p.admonition-title,
 div.danger p.admonition-title, div.error p.admonition-title,
-div.warning p.admonition-title {
+div.warning p.admonition-title, .code .error {
   color: red ;
   font-weight: bold ;
   font-family: sans-serif }
@@ -232,15 +223,21 @@ h2.subtitle {
 hr.docutils {
   width: 75% }
 
-img.align-left, .figure.align-left{
+img.align-left, .figure.align-left, object.align-left {
   clear: left ;
   float: left ;
   margin-right: 1em }
 
-img.align-right, .figure.align-right {
+img.align-right, .figure.align-right, object.align-right {
   clear: right ;
   float: right ;
   margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .align-left {
   text-align: left }
@@ -254,7 +251,7 @@ img.align-right, .figure.align-right {
 
 /* reset inner alignment in figures */
 div.align-right {
-  text-align: left }
+  text-align: inherit }
 
 /* div.align-center * { */
 /*   text-align: left } */
@@ -314,9 +311,18 @@ pre.address {
   margin-top: 0 ;
   font: inherit }
 
-pre.literal-block, pre.doctest-block {
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
 
 span.classifier {
   font-family: sans-serif ;
@@ -380,8 +386,6 @@ ul.auto-toc {
 </head>
 <body>
 <div class="document">
-
-
 <ol class="arabic">
 <li><p class="first">An enumerated list item</p>
 <blockquote>
@@ -407,16 +411,9 @@ ul.auto-toc {
 </div>
 </body>
 </html>
-
-
-
-
-        
-
-
-        <footer> ReadEvalPrint is a series of typos by
+<footer> ReadEvalPrint is a series of typos by
           <a href="https://twitter.com/readevalprint">@readevalprint</a>. Enjoy yourself, it's a celebration! Powered by <a href="https://github.com/readevalprint/django-statomatic/">django-statomatic</a>. Dog fooding FTW!
         </footer>
-      </div>
-    </body>
-  </html>
+
+
+

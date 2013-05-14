@@ -1,19 +1,17 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-
-    <title>
+<head>
+<meta charset="utf-8" />
+<title>
   Adventures with PICAXE and MDFLY MP3 Player Module RS232
 </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mostly typos, tech by Tim Watts.">
-    <meta name="author" content="Timothy John Watts">
-    <link rel="stylesheet" href="/static/css/github.css">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
-
-    <style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Mostly typos, tech by Tim Watts." />
+<meta name="author" content="Timothy John Watts" />
+<link rel="stylesheet" href="/static/css/github.css" />
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.css" />
+<style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
@@ -28,15 +26,11 @@
         margin: 20px;
       }
     </style>
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    
-    
-
-    <script src="/static/js/highlight.min.js"> </script>
-    <script>
+<!--[if lt IE 9]&gt;
+    &lt;script src="http://html5shim.googlecode.com/svn/trunk/html5.js"&gt;&lt;/script&gt;
+    &lt;![endif]-->
+<script src="/static/js/highlight.min.js"></script>
+<script>
       hljs.initHighlightingOnLoad();
 
       var _gaq = _gaq || [];
@@ -50,30 +44,22 @@
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(ga, s);
     </script>
-  </head>
-  <body class="container">
-       <div class="span7 offset2">
-        <header>
-          
-  
-            <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
-            <p>Code: it pays the <strike>bills</strike> fun.</p>
-          
-  
-  <time datetime="2012-08-23">Thur, Aug 23 2012</time>
-
-  <h2>
+</head>
+<body class="container">
+<div class="span7 offset2">
+<header>
+<h1><a href="/">read<span class="dark-grey">eval</span>print</a></h1>
+</header><p>Program or be programmed.</p>
+<time datetime="2012-08-23">Thur, Aug 23 2012</time>
+<h2>
     
   Adventures with PICAXE and MDFLY MP3 Player Module RS232
 
   </h2>
 
-
-        </header>
-        
-  <p><span class="span3"><img alt="Me soldering the PICAXE dev board" src="/static/img/soldering-picaxe.jpg" /></span>
-  <span class="span3"><img alt="SD Card MP3 Player Module RS232-TTL" src="/static/img/RS232.jpg" /></span>
-  <br style="clear:both;"></p>
+<p><span class="span3"><img alt="Me soldering the PICAXE dev board" src="/static/img/soldering-picaxe.jpg" /></span>
+<span class="span3"><img alt="SD Card MP3 Player Module RS232-TTL" src="/static/img/RS232.jpg" /></span>
+<br style="clear:both;" /></p>
 <p>I found that the <a href="http://www.mdfly.com/index.php?main_page=product_info&amp;cPath=9_53&amp;products_id=284">MDFLY RS232 MP3 module</a> need about 6v and the <a href="picaxe.com">PICAXE</a> needs less than 5.5v.
 This lead to a bit of head scratching and hurruffing until I got the great idea
 to use a 4 AA pack and solder an extra lead to the 3rd battery for the PICAXE for
@@ -86,18 +72,18 @@ and remove all hidden files before runing it.</p>
 <p>I wish I had read this before. But now you can :)</p>
 <p>Simplified code to play the only song 1:
 <code class="no-highlight">
-  <pre>
-symbol PLAY_BTN = C.1</p>
-<p>main:
+  &lt;pre&gt;
+symbol PLAY_BTN = C.1&lt;/p&gt;
+&lt;p&gt;main:
   touch PLAY_BTN, b1
   if b1 &gt; 128 then
     goto play
   endif
-  goto main</p>
-<p>play:
+  goto main&lt;/p&gt;
+&lt;p&gt;play:
   serout C.2, T4800, ($01)
-  goto release</p>
-<p>; wait untill released before accepting anymore commands
+  goto release&lt;/p&gt;
+&lt;p&gt;; wait untill released before accepting anymore commands
 release:
   touch PLAY_BTN, b4
   if b4 &gt; 128 then
@@ -105,16 +91,12 @@ release:
   else
     goto main
   endif
-  </pre>
+  &lt;/pre&gt;
 </code></p>
-<br style="clear:both;">
-
-        
-
-
-        <footer> ReadEvalPrint is a series of typos by
+<p><br style="clear:both;" /></p>
+<footer> ReadEvalPrint is a series of typos by
           <a href="https://twitter.com/readevalprint">@readevalprint</a>. Enjoy yourself, it's a celebration! Powered by <a href="https://github.com/readevalprint/django-statomatic/">django-statomatic</a>. Dog fooding FTW!
         </footer>
-      </div>
-    </body>
-  </html>
+</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html> {% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{% block meta_description %}Mostly typos, tech by Tim Watts.{% endblock %}">
     <meta name="author" content="Timothy John Watts">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/github.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="{% static "css/github.css" %}">
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/bootstrap-responsive.css" %}">
 
     <style>
       body {
@@ -33,7 +33,7 @@
     {% block head %}
     {% endblock head %}
 
-    <script src="{{ STATIC_URL }}js/highlight.min.js"> </script>
+    <script src="{% static "js/highlight.min.js" %}"></script>
     <script>
       hljs.initHighlightingOnLoad();
 
@@ -54,7 +54,7 @@
         <header>
           {% block header %}
             <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
-            <p>Code: it pays the <strike>bills</strike> fun.</p>
+            <p>Program or be programmed.</p>
           {% endblock header %}
         </header>
         {% block content %}

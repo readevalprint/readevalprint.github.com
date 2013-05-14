@@ -1,19 +1,17 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-
-    <title>
+<head>
+<meta charset="utf-8" />
+<title>
 Fun times with Makerbot
 </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mostly typos, tech by Tim Watts.">
-    <meta name="author" content="Timothy John Watts">
-    <link rel="stylesheet" href="/static/css/github.css">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
-
-    <style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Mostly typos, tech by Tim Watts." />
+<meta name="author" content="Timothy John Watts" />
+<link rel="stylesheet" href="/static/css/github.css" />
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.css" />
+<style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
@@ -28,15 +26,11 @@ Fun times with Makerbot
         margin: 20px;
       }
     </style>
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    
-    
-
-    <script src="/static/js/highlight.min.js"> </script>
-    <script>
+<!--[if lt IE 9]&gt;
+    &lt;script src="http://html5shim.googlecode.com/svn/trunk/html5.js"&gt;&lt;/script&gt;
+    &lt;![endif]-->
+<script src="/static/js/highlight.min.js"></script>
+<script>
       hljs.initHighlightingOnLoad();
 
       var _gaq = _gaq || [];
@@ -50,26 +44,19 @@ Fun times with Makerbot
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(ga, s);
     </script>
-  </head>
-  <body class="container">
-       <div class="span7 offset2">
-        <header>
-          
-  
-            <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
-            <p>Code: it pays the <strike>bills</strike> fun.</p>
-          
-  
-  <time datetime="2012-8-2">Aug 2, 2012</time>
-
-  <h2>
+</head>
+<body class="container">
+<div class="span7 offset2">
+<header>
+<h1><a href="/">read<span class="dark-grey">eval</span>print</a></h1>
+</header><p>Program or be programmed.</p>
+<time datetime="2012-8-2">Aug 2, 2012</time>
+<h2>
     
 Fun times with Makerbot
 
   </h2>
 
-
-        </header>
         
   I got a Makerbot!
 
@@ -79,6 +66,6 @@ Fun times with Makerbot
         <footer> ReadEvalPrint is a series of typos by
           <a href="https://twitter.com/readevalprint">@readevalprint</a>. Enjoy yourself, it's a celebration! Powered by <a href="https://github.com/readevalprint/django-statomatic/">django-statomatic</a>. Dog fooding FTW!
         </footer>
-      </div>
-    </body>
-  </html>
+</div>
+</body>
+</html>

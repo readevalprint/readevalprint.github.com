@@ -1,17 +1,15 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-
-    <title>readevalprint</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mostly typos, tech by Tim Watts.">
-    <meta name="author" content="Timothy John Watts">
-    <link rel="stylesheet" href="/static/css/github.css">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
-
-    <style>
+<head>
+<meta charset="utf-8" />
+<title>readevalprint</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Mostly typos, tech by Tim Watts." />
+<meta name="author" content="Timothy John Watts" />
+<link rel="stylesheet" href="/static/css/github.css" />
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.css" />
+<style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
@@ -26,15 +24,11 @@
         margin: 20px;
       }
     </style>
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    
-    
-
-    <script src="/static/js/highlight.min.js"> </script>
-    <script>
+<!--[if lt IE 9]&gt;
+    &lt;script src="http://html5shim.googlecode.com/svn/trunk/html5.js"&gt;&lt;/script&gt;
+    &lt;![endif]-->
+<script src="/static/js/highlight.min.js"></script>
+<script>
       hljs.initHighlightingOnLoad();
 
       var _gaq = _gaq || [];
@@ -48,95 +42,19 @@
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(ga, s);
     </script>
-  </head>
-  <body class="container">
-       <div class="span7 offset2">
-        <header>
-          
-            <h1><a href='/'>read<span class="dark-grey">eval</span>print</a></h1>
-            <p>Code: it pays the <strike>bills</strike> fun.</p>
-          
-        </header>
-        
+</head>
+<body class="container">
+<div class="span7 offset2">
+<header>
+<h1><a href="/">read<span class="dark-grey">eval</span>print</a></h1>
+</header><p>Program or be programmed.</p>
 
-  <a href="http://github.com/readevalprint/mini-django"><img style="position:
-      absolute; top: 0; right: 0; border: 0;"
-      src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-      alt="Fork me on GitHub" /></a>
-
+<a href="http://github.com/readevalprint/mini-django"><img style="position:
+      absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 <p>An entire django app in a single file. Updated from <a href="http://olifante.blogs.com/covil/2010/04/minimal-django.html">here</a> to use Django trunk.</p>
-<h1>Mini_django.py</h1>
-<p>An entire django app in a single file. Updated from <a href="http://olifante.blogs.com/covil/2010/04/minimal-django.html">here</a> to use Django trunk. </p>
-<h1>pico</h1>
-<p>This started off to see what the absolutely smallest requirements needed to run a Django project. Run the <a href="https://github.com/readevalprint/mini-django/blob/master/pico_django.py">pico_django.py</a> with <code>$ PYTHONPATH=. django-admin.py runserver 0.0.0.0:8000 --settings=pico_django</code> and go to http://localhost:8080</p>
-<pre><code>from django.http import HttpResponse
-from django.conf.urls.defaults import patterns
-
-DEBUG=True
-ROOT_URLCONF = 'pico_django'
-DATABASES = { 'default': {} }
-def index(request, name):
-    return HttpResponse('Hello {name}!'.format(name=(name or 'World')))
-
-urlpatterns = patterns('', (r'^(?P&lt;name&gt;\w+)?$', index))
-</code></pre>
-<h1>mini</h1>
-<p>Soon pico needed a little more spice, so it got some template loading and then because I'm lazy I made the new version directly runnable.</p>
-<p>Run the <a href="https://github.com/readevalprint/mini-django/blob/master/mini_django.py">mini_django.py</a> with <code>$ python ./micro_django.py</code> and go to http://localhost:8000/Foo</p>
-<pre><code>import os, sys
-from django.conf.urls.defaults import patterns
-from django.template.response import TemplateResponse
-
-# this module
-me = os.path.splitext(os.path.split(__file__)[1])[0]
-# helper function to locate this dir
-here = lambda x: os.path.join(os.path.abspath(os.path.dirname(__file__)), x)
-
-# SETTINGS
-DEBUG=TEMPLATE_DEBUG=True
-ROOT_URLCONF = me
-DATABASES = { 'default': {} } #required regardless of actual usage
-TEMPLATE_DIRS = (here('.'), )
-
-# VIEW
-def index(request, name):
-    return TemplateResponse(request, 'index.html', {'name': name})
-
-# URLS
-urlpatterns = patterns('', (r'^(?P&lt;name&gt;\w+)?$', index))
-
-if __name__=='__main__':
-    # set the ENV
-    os.environ['DJANGO_SETTINGS_MODULE'] = me
-    sys.path += (here('.'),)
-    # run the development server
-    from django.core import management
-    management.call_command('runserver','0.0.0.0:8000' )
-</code></pre>
-<h1>Dependencies</h1>
-<ul>
-<li>python</li>
-<li>django</li>
-</ul>
-<h1>Install</h1>
-<ol>
-<li>Install <a href="http://docs.djangoproject.com/en/dev/intro/install/">django</a></li>
-<li>get the <a href="https://github.com/readevalprint/mini-django/raw/master/mini_django.py">code</a> <code>wget https://github.com/readevalprint/mini-django/raw/master/mini_django.py</code></li>
-<li>run it <code>$ python ./mini_django.py</code></li>
-<li>open browser http://localhost.com/Foo</li>
-</ol>
-<h1>License</h1>
-<p>As-is. Public Domain. Don't blame me.</p>
-<h1>Author</h1>
-<p>Tim Watts (tim@readevalprint.com)</p>
-
-
-        
-        
-
-        <footer> ReadEvalPrint is a series of typos by
+<footer> ReadEvalPrint is a series of typos by
           <a href="https://twitter.com/readevalprint">@readevalprint</a>. Enjoy yourself, it's a celebration! Powered by <a href="https://github.com/readevalprint/django-statomatic/">django-statomatic</a>. Dog fooding FTW!
         </footer>
-      </div>
-    </body>
-  </html>
+</div>
+</body>
+</html>
