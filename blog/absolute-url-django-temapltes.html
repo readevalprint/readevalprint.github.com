@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>
-  Cartridge and Stripe for fun and profit.
+  Easy absolute uri with Django template tags
 </title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Mostly typos, tech by Tim Watts." />
@@ -50,19 +50,28 @@
 <header>
 <h1><a href="/">read<span class="dark-grey">eval</span>print</a></h1>
 </header><p>Program or be programmed.</p>
-<time datetime="2012-09-02">Sun Sep 2, 2012</time>
+<time datetime="2013-05-19">Sun May 19th, 2013</time>
 <h2>
     
-  Cartridge and Stripe for fun and profit.
+  Easy absolute uri with Django template tags
 
   </h2>
 
-<p><a href="http://mezzanine.jupo.org">Mezzinine</a> is pretty awesome for a CMS. And it has a sweet
-  ecommerce system called <a href="http://cartridge.jupo.org">Cartridge</a> which is also pretty awesome.</p>
-<p>One thing missing was Stripe integration. So I set upon the task of bridging
-  that gap. On that note, I have the pleasure of introducing to you
-  <a href="https://github.com/readevalprint/cartridge-stripe/">cartridge-stripe</a>.</p>
-<p>Note: Remember to serve the <a href="https://support.stripe.com/questions/do-i-need-to-be-pci-compliant-what-do-i-have-to-do">checkout page and assets over SSL for PCI compliance</a>.</p>
+        
+  for this to work you'll need to add <code>django.core.context_processors.request</code> to <code>TEMPLATE_CONTEXT_PROCESSORS</code>. Read <a href="https://docs.djangoproject.com/en/dev/ref/templates/api/#django-core-context-processors-request">https://docs.djangoproject.com/en/dev/ref/templates/api/#django-core-context-processors-request</a>. Then to your template add: <br />
+<br />
+<code>
+    
+    {{ request.build_absolute_uri|slice:":-1" }}{% url 'some-view' %}
+    
+  </code><br />
+<br />
+<h3>How does this all work?</h3>
+<a href="https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.build_absolute_uri">request.build_absolute_uri</a><br />
+<a href="https://docs.djangoproject.com/en/dev/ref/templates/builtins/#slice">
+    :slice":-1"</a><br />
+<a href="https://docs.djangoproject.com/en/dev/ref/templates/builtins/#url">
+    {% url %}</a>
 <footer> ReadEvalPrint is a series of typos by
           <a href="https://twitter.com/readevalprint">@readevalprint</a>. Enjoy yourself, it's a celebration! Powered by <a href="https://github.com/readevalprint/django-statomatic/">django-statomatic</a>. Dog fooding FTW!
         </footer>
