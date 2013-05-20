@@ -1,0 +1,29 @@
+{% extends 'blog.html' %}
+
+{% load markuptags %}
+
+{% block title %}
+  Easy absolute uri with Django template tags
+{% endblock title %}
+
+{% block published %}
+  <time datetime="2013-05-19">Sun May 19th, 2013</time>
+{% endblock %}
+
+{% block content %}
+  for this to work you'll need to add <code>django.core.context_processors.request</code> to <code>TEMPLATE_CONTEXT_PROCESSORS</code>. Read <a href="https://docs.djangoproject.com/en/dev/ref/templates/api/#django-core-context-processors-request">https://docs.djangoproject.com/en/dev/ref/templates/api/#django-core-context-processors-request</a>. Then to your template add: <br>
+  <br>
+  <code>
+    {% verbatim %}
+    {{ request.build_absolute_uri|slice:":-1" }}{% url 'some-view' %}
+    {% endverbatim %}
+  </code><br>
+  <br>
+
+  <h3>How does this all work?</h3>
+  <a href="https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.build_absolute_uri">request.build_absolute_uri</a><br>
+  <a href="https://docs.djangoproject.com/en/dev/ref/templates/builtins/#slice">
+    :slice":-1"</a><br>
+  <a href="https://docs.djangoproject.com/en/dev/ref/templates/builtins/#url">
+    {% verbatim %}{% url %}{% endverbatim %}</a>
+{% endblock %}
