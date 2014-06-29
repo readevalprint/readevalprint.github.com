@@ -2,6 +2,7 @@
 layout: post_page
 title: mini-django
 ---
+![pony with wings](https://cloud.githubusercontent.com/assets/118430/3424545/f334ccf6-ffd4-11e3-95eb-a9462b5ad69e.jpg)
 
 An entire django app in a single file. This started off to see what the absolutely smallest requirements needed to run a Django project. Updated from [here](http://olifante.blogs.com/covil/2010/04/minimal-django.html) to use Django trunk.
 
