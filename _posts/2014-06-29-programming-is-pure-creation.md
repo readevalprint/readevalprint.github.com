@@ -1,8 +1,8 @@
 ---
 title: Programming is pure creation.
 layout: post_page
+image: https://cloud.githubusercontent.com/assets/118430/3424478/f15d37ae-ffd1-11e3-8982-659315b212b8.jpg
 ---
-![I drew this for you.](https://cloud.githubusercontent.com/assets/118430/3424478/f15d37ae-ffd1-11e3-8982-659315b212b8.jpg)
 Programming makes me feel as though I have a super power. A strangly autistic, buggy, poorly optimized super power. The ability to create minions of dubious intellegence to do my bidding with a few keystrokes or an imported library. The ability to break down any process and automate it so thoroughly I can replace people with a "shell script". Sadly, I've even programmed myself out of a job on occasion. Hero? Villan? Surely we have progressed beyond the need for simple labels.
 
 But where will this all go? Why debug another method or class? Of what benifit is there in yet another templating implemtation? 
