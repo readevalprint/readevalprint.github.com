@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+    <title>ReadEvalPrint  - mini-django </title>
+		<!-- For responsive site
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="author" href="/humans.txt">
+		<meta name="description" content="Description Goes Here">
+		<link rel="stylesheet" href="/css/style.css">
+		<!--[if IE 7]>
+			<html class="ie7">
+			<link rel="stylesheet" type="text/css" href="/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<!--[if IE 8]><html class="ie8"> <![endif]-->
+	    <!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="ico/favicon.png">
+	</head>
+	<body>
+	<!-- Header
+	    ================================================== -->
+	<header>
+
+	</header>
+
+	<div class="top-strip"></div>
+<main class="content">
+    <section class="container">
+    	<div class="row-fluid">
+    		<article class="home-icon">
+				<a href="/">
+					<i class="icon-home"></i>
+				</a>
+			</article>
+			<article class="post">
+				<h5>28 June 2013</h5>
+				<h1 class="content">mini-django</h1>
+				<section>
+					<p>An entire django app in a single file. Updated from <a href="http://olifante.blogs.com/covil/2010/04/minimal-django.html">here</a> to use Django trunk.</p>
+
+<h2 id="pico">pico</h2>
+
+<p>This started off to see what the absolutely smallest requirements needed to run a Django project. Run the <a href="https://github.com/readevalprint/mini-django/blob/master/pico_django.py">pico_django.py</a> with <code>$ PYTHONPATH=. django-admin.py runserver 0.0.0.0:8000 --settings=pico_django</code> and go to http://localhost:8080</p>
+
+<pre><code>from django.http import HttpResponse
+from django.conf.urls.defaults import patterns
+
+DEBUG=True
+ROOT_URLCONF = &#39;pico_django&#39;
+DATABASES = { &#39;default&#39;: {} }
+def index(request, name):
+    return HttpResponse(&#39;Hello {name}!&#39;.format(name=(name or &#39;World&#39;)))
+
+urlpatterns = patterns(&#39;&#39;, (r&#39;^(?P&lt;name&gt;\w+)?$&#39;, index))</code></pre>
+
+<h2 id="mini">mini</h2>
+
+<p>Soon pico needed a little more spice, so it got some template loading and then because I&#39;m lazy I made the new version directly runnable.</p>
+
+<p>Run the <a href="https://github.com/readevalprint/mini-django/blob/master/mini_django.py">mini_django.py</a> with <code>$ python ./micro_django.py</code> and go to http://localhost:8000/Foo</p>
+
+<pre><code>import os, sys
+from django.conf.urls.defaults import patterns
+from django.template.response import TemplateResponse
+
+# this module
+me = os.path.splitext(os.path.split(__file__)[1])[0]
+# helper function to locate this dir
+here = lambda x: os.path.join(os.path.abspath(os.path.dirname(__file__)), x)
+
+# SETTINGS
+DEBUG=TEMPLATE_DEBUG=True
+ROOT_URLCONF = me
+DATABASES = { &#39;default&#39;: {} } #required regardless of actual usage
+TEMPLATE_DIRS = (here(&#39;.&#39;), )
+
+# VIEW
+def index(request, name):
+    return TemplateResponse(request, &#39;index.html&#39;, {&#39;name&#39;: name}0)
+
+# URLS
+urlpatterns = patterns(&#39;&#39;, (r&#39;^(?P&lt;name&gt;\w+)?$&#39;, index))
+
+if __name__==&#39;__main__&#39;:
+    # set the ENV
+    os.environ[&#39;DJANGO_SETTINGS_MODULE&#39;] = me
+    sys.path += (here(&#39;.&#39;),)
+    # run the development server
+    from django.core import management
+    management.call_command(&#39;runserver&#39;,&#39;0.0.0.0:8000&#39; )</code></pre>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<ul>
+<li>python</li>
+
+<li>django</li>
+</ul>
+
+<h2 id="install">Install</h2>
+
+<ol>
+<li>Install <a href="http://docs.djangoproject.com/en/dev/intro/install/">django</a></li>
+
+<li>get the <a href="https://github.com/readevalprint/mini-django/raw/master/mini_django.py">code</a> <code>wget https://github.com/readevalprint/mini-django/raw/master/mini_django.py</code></li>
+
+<li>run it <code>$ python ./mini_django.py</code></li>
+
+<li>open browser http://localhost.com/Foo</li>
+</ol>
+
+<h2 id="license">License</h2>
+
+<p>As-is. Public Domain. Don’t blame me.</p>
+
+<h2 id="author">Author</h2>
+
+<p>Tim Watts (tim@readevalprint.com)</p>
+					<hr>
+				</section>
+				<section style="font-weight:bold; margin-bottom: 2em;">
+					
+							<a rel="prev" class="a-hover"href="/vbc/2013/06/01/sixth-post.html"><i class="icon-double-angle-left"></i> Cheese</a>
+						
+						
+							<a rel="next" style="float:right" class="a-hover"href="/vbc/2013/07/01/seventh-post.html">Fashion <i class=" icon-double-angle-right"></i></a>
+					
+				</section>
+			</article>
+		</div>
+	</section>
+</main>
+
+
+	<footer>
+		<div class="container">
+			<a href="http://richbray.me/frap/">Frappuccino</a> | Copyright or profile stuff goes here
+		</div>
+	</footer>
+
+	<!-- Footer
+	    ================================================== -->
+
+	<!-- Javascripts
+	    ================================================= -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/custom.js"></script>
+
+    <!-- Analytics
+    ================================================== -->
+    <script>
+		// analytics code
+    </script>
+	</body>
+</html>
