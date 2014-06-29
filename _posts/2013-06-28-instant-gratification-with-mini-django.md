@@ -3,10 +3,10 @@ layout: post_page
 title: mini-django
 ---
 
-An entire django app in a single file. Updated from [here](http://olifante.blogs.com/covil/2010/04/minimal-django.html) to use Django trunk.
+An entire django app in a single file. This started off to see what the absolutely smallest requirements needed to run a Django project. Updated from [here](http://olifante.blogs.com/covil/2010/04/minimal-django.html) to use Django trunk.
 
 ##pico
-This started off to see what the absolutely smallest requirements needed to run a Django project. Run the [pico_django.py](https://github.com/readevalprint/mini-django/blob/master/pico_django.py) with `$ PYTHONPATH=. django-admin.py runserver 0.0.0.0:8000 --settings=pico_django` and go to http://localhost:8080
+ Run the [pico_django.py](https://github.com/readevalprint/mini-django/blob/master/pico_django.py) with `$ PYTHONPATH=. django-admin.py runserver 0.0.0.0:8000 --settings=pico_django` and go to http://localhost:8080
 
     from django.http import HttpResponse
     from django.conf.urls.defaults import patterns
