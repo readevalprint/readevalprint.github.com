@@ -2,6 +2,7 @@
 ---
 title: Let see what makes Python tick. Or, How I stopped worring and learned to
 love the AST
+layout: post_page
 ---
 
 ## Let see what makes Python tick...
