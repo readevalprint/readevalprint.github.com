@@ -13,11 +13,11 @@ Let's see what the normal
 print statement looks like...
 
 
-    #import the module
-    import ast
+    >>> #import the module
+    >>> import ast
 
-    tree = ast.parse("print('hello world')")
-    print tree
+    >>> tree = ast.parse("print('hello world')")
+    >>> print tree
 
     <_ast.Module object at 0x25cde10>
 
@@ -26,7 +26,7 @@ Well that was less than interesting... But let's not pass judgement too soon.
 Who really _are_ you `<_ast.Module>`? What makes you tick?
 
 
-    exec(compile(tree, filename="<ast>", mode="exec"))
+    >>> exec(compile(tree, filename="<ast>", mode="exec"))
 
     hello world
 
@@ -36,11 +36,7 @@ and run `tree` and it still worked! I want to tease it apart. See the gritty
 details. The first thing I would is print the `__dict__` on it. (haha what are
 these "docs" you speak of? Begone with you.)
 
-
-    tree.__dict__
-
-
-
+    >>> tree.__dict__
 
     {'body': [<_ast.Print at 0x25bdc50>]}
 
@@ -51,11 +47,8 @@ Ok. Well there is `body` and it is a `list`... of one item. A certian
 statement. She's a beauty, let's get a little closer.
 
 
-    print_node = tree.body[0]
-    print_node.__dict__
-
-
-
+    >>> print_node = tree.body[0]
+    >>> print_node.__dict__
 
     {'col_offset': 0,
      'dest': None,
@@ -71,11 +64,8 @@ not fun. No spoilers! The `values` property is a list and it contains a
 `<_ast.Str>` which does makes sense as the original goal was to print a string.
 
 
-    string_node = print_node.values[0]
-    string_node.__dict__
-
-
-
+    >>> string_node = print_node.values[0]
+    >>> string_node.__dict__
 
     {'col_offset': 6, 'lineno': 1, 's': 'hello world'}
 
@@ -87,18 +77,12 @@ old news. In this modern and international world, we like to be a bit more
 forward thinking. Let's use Portuguese!
 
 
-    string_node.s = "Oi Mundo!"
-    string_node.__dict__
-
-
-
+    >>> string_node.s = "Oi Mundo!"
+    >>> string_node.__dict__
 
     {'col_offset': 6, 'lineno': 1, 's': 'Oi Mundo!'}
 
-
-
-
-    exec(compile(tree, filename="<ast>", mode="exec"))
+    >>> exec(compile(tree, filename="<ast>", mode="exec"))
 
     Oi Mundo!
 
@@ -108,8 +92,7 @@ Something stronger.
 
 
     # This is obviously not going to work
-    'a' ^ 'b'
-
+    >>> 'a' ^ 'b'
 
     ---------------------------------------------------------------------------
     TypeError                                 Traceback (most recent call last)
@@ -129,11 +112,10 @@ Let us fix this. Because I don't just WANT to `^` one string to another. I
 that is were all great thoughts originate. Your loins. Heh. Loin.
 
 
-    tree2 = ast.parse("'cat' ^ 'dog'")
-    print tree2
+    >>> tree2 = ast.parse("'cat' ^ 'dog'")
+    >>> print tree2
 
     <_ast.Module object at 0x257b910>
-
 
 ## In which our hero harrasses a yak.
 Ugh this no longer amuses me. This `<_ast.Module>` hiding all the juicy filling
@@ -161,10 +143,7 @@ wings, this will be the worlds most aerodynamic yak. Like a rocket. Rocket Yak.
         # Who knows what it is, just return it.
         return node
 
-    parse_ast(tree2)
-
-
-
+    >>> parse_ast(tree2)
 
     (_ast.Module,
      {'body': [(_ast.Expr,
@@ -201,9 +180,9 @@ What you say? Allow me to take out every zig. All of them.
 
 
     # No one will ever guess it!!
-    so_freaking_secret = rotN('Eu gousto de açaí'.decode('utf8'), 4)
-    print repr(so_freaking_secret)
-    print so_freaking_secret
+    >>> so_freaking_secret = rotN('Eu gousto de açaí'.decode('utf8'), 4)
+    >>> print repr(so_freaking_secret)
+    >>> print so_freaking_secret
 
     'Iy$ksywxs$hi$e\xc3\xabe\xc3\xb1'
     Iy$ksywxs$hi$eëeñ
@@ -218,11 +197,8 @@ out new and impressive (and totaly secure) rotN function? Sounds like a plan!
 Can we parse this?
 
 
-    import inspect
-    inspect.getsourcelines(rotN)
-
-
-
+    >>> import inspect
+    >>> inspect.getsourcelines(rotN)
 
     ([u'def rotN(message, n):\n',
       u"    result = ''\n",
@@ -239,12 +215,9 @@ Can we parse this?
 Quick! To the AST parser!!
 
 
-    rotN_source = '\n'.join(inspect.getsourcelines(rotN)[0])
-    rotN_tree = ast.parse(rotN_source)
-    parse_ast(rotN_tree)
-
-
-
+    >>> rotN_source = '\n'.join(inspect.getsourcelines(rotN)[0])
+    >>> rotN_tree = ast.parse(rotN_source)
+    >>> parse_ast(rotN_tree)
 
     (_ast.Module,
      {'body': [(_ast.FunctionDef,
@@ -360,9 +333,9 @@ while and they do that sort of thing. It is acutally satisfying and I would
 wholy suggest you give it a try. guh-NAR-ly.)
 
 
-    # So this still does not work. As expected, but let us see.....
-    caret_string_tree = ast.parse("print 'Secret message: ','i like cheese' ^ 4")
-    exec(compile(caret_string_tree, filename="<ast>", mode="exec"))
+    >>> # So this still does not work. As expected, but let us see.....
+    >>> caret_string_tree = ast.parse("print 'Secret message: ','i like cheese' ^ 4")
+    >>> exec(compile(caret_string_tree, filename="<ast>", mode="exec"))
 
     Secret message:
 
@@ -381,12 +354,7 @@ wholy suggest you give it a try. guh-NAR-ly.)
 
     TypeError: unsupported operand type(s) for ^: 'str' and 'int'
 
-
-
-    parse_ast(caret_string_tree)
-
-
-
+    >>> parse_ast(caret_string_tree)
 
     (_ast.Module,
      {'body': [(_ast.Print,
@@ -416,24 +384,15 @@ macro? Maybe the list comprehension was a good idea. I am sorry for laughing at
 you.
 
 
-    message = 'Eu gousto de açaí'
-    n= 4
-    ''.join((unichr((ord((c)) + n))).encode('utf8') for c in message.decode('utf8'))
-    # Ok. It's done.
-
-
-
+    >>> message = 'Eu gousto de açaí'
+    >>> n = 4
+    >>> ''.join((unichr((ord((c)) + n))).encode('utf8') for c in message.decode('utf8'))
+    >>> # Ok. It's done.
 
     'Iy$ksywxs$hi$e\xc3\xabe\xc3\xb1'
 
-
-
-
-    single_line_rotn = ast.parse("''.join((unichr((ord((c)) + n))).encode('utf8') for c in message.decode('utf8'))")
-    parse_ast(single_line_rotn)
-
-
-
+    >>> single_line_rotn = ast.parse("''.join((unichr((ord((c)) + n))).encode('utf8') for c in message.decode('utf8'))")
+    >>> parse_ast(single_line_rotn)
 
     (_ast.Module,
      {'body': [(_ast.Expr,
@@ -536,10 +495,7 @@ place, with `left` repacing the variable `message` (variables are `_ast.Name`)
 and `right` with `n`.
 
 
-    parse_ast(caret_string_tree)
-
-
-
+    >>> parse_ast(caret_string_tree)
 
     (_ast.Module,
      {'body': [(_ast.Print,
@@ -556,30 +512,25 @@ and `right` with `n`.
             'right': (_ast.Num, {'col_offset': 24, 'lineno': 1, 'n': 4})})]})]})
 
 
+    >>> # This is shameful, if I had space for more yaks, I would make a search a replace function.
+    >>> single_line_rotn.body[0].value.args[0].elt.func.value.args[0].right = caret_string_tree.body[0].values[1].right
+    >>> single_line_rotn.body[0].value.args[0].generators[0].iter.func.value = caret_string_tree.body[0].values[1].left
+    >>> caret_string_tree.body[0].values[1] = single_line_rotn.body[0].value
 
-
-    # This is shameful, if I had space for more yaks, I would make a search a replace function.
-    single_line_rotn.body[0].value.args[0].elt.func.value.args[0].right = caret_string_tree.body[0].values[1].right
-    single_line_rotn.body[0].value.args[0].generators[0].iter.func.value = caret_string_tree.body[0].values[1].left
-    caret_string_tree.body[0].values[1] = single_line_rotn.body[0].value
-
-    # moment of truth.
-    exec(compile(caret_string_tree, filename="<ast>", mode="exec"))
+    >>> # moment of truth.
+    >>> exec(compile(caret_string_tree, filename="<ast>", mode="exec"))
 
     Secret message:  m$pmoi$gliiwi
 
 
 
-    QED.
+## QED.
 
 In case you want to see the final AST. Here is it in all its parsiness. You can
 see where I added the original string "i like cheese".
 
 
-    parse_ast(caret_string_tree)
-
-
-
+    >>> parse_ast(caret_string_tree)
 
     (_ast.Module,
      {'body': [(_ast.Print,
