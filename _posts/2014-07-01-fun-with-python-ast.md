@@ -511,17 +511,17 @@ and `right` with `n`.
             'right': (_ast.Num, {'col_offset': 24, 'lineno': 1, 'n': 4})})]})]})
 
 
-    >>> # This is shameful, if I had space for more yaks, I would make a search a replace function.
+This is shameful, if I had space for more yaks, I would make a search a replace function.
+
     >>> single_line_rotn.body[0].value.args[0].elt.func.value.args[0].right = caret_string_tree.body[0].values[1].right
     >>> single_line_rotn.body[0].value.args[0].generators[0].iter.func.value = caret_string_tree.body[0].values[1].left
     >>> caret_string_tree.body[0].values[1] = single_line_rotn.body[0].value
 
-    >>> # moment of truth.
+The moment of truth.
+  
     >>> exec(compile(caret_string_tree, filename="<ast>", mode="exec"))
 
     Secret message:  m$pmoi$gliiwi
-
-
 
 ## QED.
 
