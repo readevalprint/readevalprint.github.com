@@ -1,20 +1,19 @@
-
 ---
-title: Let see what makes Python tick. Or, How I stopped worring and learned to
-love the AST
+title: Let see what makes Python tick. Or, How I stopped worring and learned to love the AST
 layout: post_page
 ---
 
-## Let see what makes Python tick...
 So python can be compiled into an Abstract Syntax Tree
 ([AST](https://docs.python.org/3/library/ast.html)). And there just happens to
-be a module with that exact name. Wonders never cease! Let's see what the normal
+be a module with that exact name. Wonders never cease!
+## Let see what makes Python tick...
+Let's see what the normal
 print statement looks like...
 
 
     #import the module
     import ast
-    
+
     tree = ast.parse("print('hello world')")
     print tree
 
@@ -116,7 +115,7 @@ Something stronger.
     <ipython-input-37-8496cbf2925d> in <module>()
           1 # This is obviously not going to work
     ----> 2 'a' ^ 'b'
-    
+
 
     TypeError: unsupported operand type(s) for ^: 'str' and 'str'
 
@@ -142,24 +141,24 @@ wings, this will be the worlds most aerodynamic yak. Like a rocket. Rocket Yak.
 
 
     def parse_ast(node):
-        # check if this is a node or list 
+        # check if this is a node or list
         if isinstance(node, list):
             result = []
             for child_node in node: # A list of nodes, really
                 result += [parse_ast(child_node)]
             return result
-        
+
         # A node it seems
         if '_ast' == getattr(node, '__module__', False):
             result = {}
             for k in node.__dict__:
                 result[k] = parse_ast(getattr(node, k))
             # The original class would be nice if we want to reconstruct the tree
-            return node.__class__, result 
-        
+            return node.__class__, result
+
         # Who knows what it is, just return it.
         return node
-    
+
     parse_ast(tree2)
 
 
@@ -191,14 +190,14 @@ What you say? Allow me to take out every zig. All of them.
 
     def rotN(message, n):
         result = ''
-        # Yes this could be a list comprehension. 
+        # Yes this could be a list comprehension.
         # But now your eyes are not bleeding.
         # You are welcome.
         for c in message:
-            result += (unichr((ord((c)) + n))).encode('utf8') 
-        return result 
-    
-    
+            result += (unichr((ord((c)) + n))).encode('utf8')
+        return result
+
+
     # No one will ever guess it!!
     so_freaking_secret = rotN('Eu gousto de açaí'.decode('utf8'), 4)
     print repr(so_freaking_secret)
@@ -360,10 +359,10 @@ wholy suggest you give it a try. guh-NAR-ly.)
 
 
     # So this still does not work. As expected, but let us see.....
-    caret_string_tree = ast.parse("print 'Secret message: ','i like cheese' ^ 4") 
+    caret_string_tree = ast.parse("print 'Secret message: ','i like cheese' ^ 4")
     exec(compile(caret_string_tree, filename="<ast>", mode="exec"))
 
-    Secret message: 
+    Secret message:
 
 
     ---------------------------------------------------------------------------
@@ -373,7 +372,7 @@ wholy suggest you give it a try. guh-NAR-ly.)
           1 # So this still does not work. As expected, but let us see.....
           2 caret_string_tree = ast.parse("print 'Secret message: ','i like cheese' ^ 4")
     ----> 3 exec(compile(caret_string_tree, filename="<ast>", mode="exec"))
-    
+
 
     <ast> in <module>()
 
@@ -405,7 +404,7 @@ wholy suggest you give it a try. guh-NAR-ly.)
 
 
 
-    
+
 
 
 So let's just brute force it. We could get elegant at a later time. But errr, so
@@ -557,11 +556,11 @@ and `right` with `n`.
 
 
 
-    # This is shameful, if I had space for more yaks, I would make a search a replace function. 
+    # This is shameful, if I had space for more yaks, I would make a search a replace function.
     single_line_rotn.body[0].value.args[0].elt.func.value.args[0].right = caret_string_tree.body[0].values[1].right
     single_line_rotn.body[0].value.args[0].generators[0].iter.func.value = caret_string_tree.body[0].values[1].left
     caret_string_tree.body[0].values[1] = single_line_rotn.body[0].value
-    
+
     # moment of truth.
     exec(compile(caret_string_tree, filename="<ast>", mode="exec"))
 
@@ -675,4 +674,4 @@ see where I added the original string "i like cheese".
 
 
 
-    
+
