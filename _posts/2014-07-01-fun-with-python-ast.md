@@ -386,7 +386,7 @@ you.
 
     >>> message = 'Eu gousto de açaí'
     >>> n = 4
-    >>> ''.join((unichr((ord((c)) + n))).encode('utf8') for c in message.decode('utf8')) # Ok. It's done.
+    >>> ''.join((unichr((ord((c)) + n))).encode('utf8') for c in message.decode('utf8'))
 
     'Iy$ksywxs$hi$e\xc3\xabe\xc3\xb1'
 
