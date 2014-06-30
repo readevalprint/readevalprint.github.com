@@ -12,4 +12,4 @@ I don't feel special. But an outrageous salary and pings from recruiters seem to
 I feel a bit metaphysical so I'll go ahead and say it: Our lives are for-loops, decrementing from moment to moment for a lifetime. Waiting for that grand end conditional, or heaven forbid, some trial in life may throw us an uncaught exception. And hopefully we have recursed into children before that. And then they too will loop. And then recurse. And so on. Until all our resources are reaped by the great [GC](http://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) in the sky. But we will do our best.
 
 
-Thanks to Alexandra and Dan for their feedback.
+[Thanks to Alexandra and Dan for their feedback.]
