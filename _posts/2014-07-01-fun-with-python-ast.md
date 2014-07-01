@@ -1,5 +1,5 @@
 ---
-title: Let see what makes Python tick. Or, How I stopped worring and learned to love the AST
+title: Let us see what makes Python tick. Or, How I stopped worrying and learned to love the AST
 layout: post_page
 ---
 
@@ -59,7 +59,7 @@ statement. She's a beauty, let's get a little closer.
 
 
 This is cool! Now we can see it has a few more properties. `col_offset` and
-`lineno` are likly to be related to tracebacks. I could look it up. But that is
+`lineno` are likely to be related to tracebacks. I could look it up. But that is
 not fun. No spoilers! The `values` property is a list and it contains a
 `<_ast.Str>` which does makes sense as the original goal was to print a string.
 
@@ -87,7 +87,7 @@ forward thinking. Let's use Portuguese!
     Oi Mundo!
 
 
-Yay! It worked! But the inital thrill is wearing off. I need something more.
+Yay! It worked! But the initial thrill is wearing off. I need something more.
 Something stronger.
 
 
@@ -161,7 +161,7 @@ wings, this will be the worlds most aerodynamic yak. Like a rocket. Rocket Yak.
 ##Progress!!
 Now we get a nice and organized dict and lists of class and values. And now we
 can see the... stuff. Sure. So that `_ast.BitXor` seems interesting. But what
-does it mean?! (No one know what it means, it gets the people going!) Now that
+does it mean?! (No one knows what it means, it gets the people going!) Now that
 I'm here, it makes sense to think about what XORing two strings really means.
 Should it be algebraic? Or maybe fun? Ook ok ok. We won't use the caret (^) on
 two strings. Instead it will be between a string and a number. And that number
@@ -329,7 +329,7 @@ Quick! To the AST parser!!
 
 
 **Gnarly!** It worked. (I pronounced the "g" cause I've been in Germany for a
-while and they do that sort of thing. It is acutally satisfying and I would
+while and they do that sort of thing. It is actually satisfying and I would
 wholy suggest you give it a try. guh-NAR-ly.)
 
 
