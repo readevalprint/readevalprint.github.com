@@ -108,7 +108,7 @@ What was I thinking? Am I insane? One does not merely XOR two strings. That is
 path of darkness, madness, and `TypeErrors`. No, no, this will not do at all.
 Let us fix this. Because I don't just WANT to `^` one string to another. I
 **need** to. It's a deeper, more **fundamental** yearning in my loins. Because
-that is were all great thoughts originate. Your loins. Heh. Loin.
+that is where all great thoughts originate. Your loins. Heh. Loin.
 
 
     >>> tree2 = ast.parse("'cat' ^ 'dog'")
