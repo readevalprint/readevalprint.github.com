@@ -5,8 +5,7 @@ layout: post_page
 
 So python can be compiled into an Abstract Syntax Tree
 ([AST](https://docs.python.org/3/library/ast.html)). And there just happens to
-be a module with that exact name. Wonders never cease as we face the dark 
-wonders within python internals! 
+be a module with that exact name. Wonders never cease as we face the dark python internals! 
 
 ## Let see what makes Python tick...
 Let's see what the normal
