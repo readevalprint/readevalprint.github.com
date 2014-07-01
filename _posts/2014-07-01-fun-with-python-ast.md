@@ -180,7 +180,7 @@ What you say? Allow me to take out every zig. All of them.
 
 
     # No one will ever guess it!!
-    >>> so_freaking_secret = rotN('Eu gousto de açaí'.decode('utf8'), 4)
+    >>> so_freaking_secret = rotN('Eu gosto de açaí'.decode('utf8'), 4)
     >>> print repr(so_freaking_secret)
     >>> print so_freaking_secret
 
