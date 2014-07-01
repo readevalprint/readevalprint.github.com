@@ -1,6 +1,8 @@
 ---
 title: It's cool to make your own crypto
 layout: post_page
+image: https://cloud.githubusercontent.com/assets/118430/3449699/6e3122d8-016a-11e4-98d6-11a3d09d5b90.png
+
 ---
 
 In that last post, I whipped up this sweet little ceasar cipher. If Caesar lived with PGP maybe things would be different. But no. He thought this was the best. (And it likely was if his opponents were illiterates)  Uncrackable. Unbreakable. No one will know what this does. Like seriously. Ok I have a test for you... Can you figure out the ones on the bottom of the page.
