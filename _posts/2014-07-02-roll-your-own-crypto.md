@@ -20,8 +20,9 @@ Here is a secret message for you!
 
     print rotN('8kj\x16i[h_ekibo\x16\\ebai"\x16_id\x1dj\x16j^_i\x16`kij\x16]h[Wj5', 10)
 
-Here are a few more lines for you enjoyment. But... to make this interesting. I won't tell you the offset.
-A secret
+Here are a few more lines for you enjoyment. But... to make this interesting. 
+
+I won't tell you the offset.
 
     '1\\\rf\\b\rX[\\d\raUR\rZbSSV[\rZN[,'
 
