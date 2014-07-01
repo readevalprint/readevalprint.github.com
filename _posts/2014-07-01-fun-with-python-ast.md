@@ -1,5 +1,5 @@
 ---
-title: Let us see what makes Python tick. Or, How I learned to stop worrying and
+title: How I learned to stop worrying and
 love the AST
 layout: post_page
 ---
