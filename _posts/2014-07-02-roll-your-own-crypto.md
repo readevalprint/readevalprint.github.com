@@ -3,7 +3,7 @@ title: It's cool to make your own crypto
 layout: post_page
 ---
 
-Uncrackable. Unbreakable. No one will know what this does. Like seriously. Ok I have a test for you... Can you figure out the ones on the bottom of the page.
+In that last post, I whiped up this sweet little ceasar cipher. If Caesar lived with PGP maybe things would be different. But no. He thought this was the best. (And it likely was if his oppnents were mostly illiterate)  Uncrackable. Unbreakable. No one will know what this does. Like seriously. Ok I have a test for you... Can you figure out the ones on the bottom of the page.
 
     # Using python2.7
     def rotN(message, n):
@@ -19,6 +19,7 @@ Uncrackable. Unbreakable. No one will know what this does. Like seriously. Ok I 
 Here is a secret message for you!
 
     print rotN('8kj\x16i[h_ekibo\x16\\ebai"\x16_id\x1dj\x16j^_i\x16`kij\x16]h[Wj5', 10)
+    But seriously folks, isn't this just great?
 
 Here are a few more lines for you enjoyment. But... to make this interesting. 
 
