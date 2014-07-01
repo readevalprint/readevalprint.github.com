@@ -3,8 +3,8 @@ title: It's cool to make your own crypto
 layout: post_page
 ---
 
-In that last post, I whiped up this sweet little ceasar cipher. If Caesar lived with PGP maybe things would be different. But no. He thought this was the best. (And it likely was if his oppnents were mostly illiterate)  Uncrackable. Unbreakable. No one will know what this does. Like seriously. Ok I have a test for you... Can you figure out the ones on the bottom of the page.
-
+In that last post, I whipped up this sweet little ceasar cipher. If Caesar lived with PGP maybe things would be different. But no. He thought this was the best. (And it likely was if his opponents were illiterates)  Uncrackable. Unbreakable. No one will know what this does. Like seriously. Ok I have a test for you... Can you figure out the ones on the bottom of the page.
+ 
     # Using python2.7
     def rotN(message, n):
         message = message.decode('utf8')
