@@ -42,7 +42,7 @@ these "docs" you speak of? Begone with you.)
 
 
 
-Ok. Well there is `body` and it is a `list`... of one item. A certian
+Ok. Well there is `body` and it is a `list`... of one item. A certain
 `<_ast.Print>`. That makes sense because the original was just a print
 statement. She's a beauty, let's get a little closer.
 
