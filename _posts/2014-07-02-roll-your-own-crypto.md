@@ -29,10 +29,11 @@ The saga continues....
 
     'J}|(\x7fpmv(q|(kwum{(lw\x7fv(|w(q|4(Q(|pqvs(|pmzm(q{(i(tq||tm(u}nnqv(uiv(qv(}{(itt6(0xwqv|(i|(\xc2\x81w}z(pmiz|1'
 
-The boss level!!
+Our hero continues....
 
     '5h\x14h]aYg \x14`]ZY\x14WUb\x14VY\x14U\x14`]hh`Y\x14acfY\x14UVfidh\x14h\\Ub\x14=\x14]aU[]bYX"'
 
+The boss level!!
 
     'Yz\xc2\x82+\x7f\xc2\x82pp\x7f+xp+3K}plop\xc2\x81lw{}ty\x7f4+~zxp\x7fstyr9'
   
