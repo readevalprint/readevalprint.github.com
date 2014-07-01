@@ -1,6 +1,5 @@
 ---
-title: How I learned to stop worrying and
-love the AST
+title: How I learned to stop worrying and love the AST
 layout: post_page
 ---
 
