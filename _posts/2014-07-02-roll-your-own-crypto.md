@@ -20,7 +20,7 @@ In that last post, I whipped up this sweet little ceasar cipher. If Caesar lived
 
 Here is a secret message for you!
 
-    print rotN('8kj\x16i[h_ekibo\x16\\ebai"\x16_id\x1dj\x16j^_i\x16`kij\x16]h[Wj5', 10)
+    >>> print rotN('8kj\x16i[h_ekibo\x16\\ebai"\x16_id\x1dj\x16j^_i\x16`kij\x16]h[Wj5', 10)
     But seriously folks, isn't this just great?
 
 Here are a few more lines for you enjoyment. But... to make this interesting. 
