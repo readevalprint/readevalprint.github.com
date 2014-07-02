@@ -61,14 +61,15 @@ Now I'm on a roll! What else is there...? Derp. The obvious, booleans!
     
     '''
     
-## Let the games begin
     
+## Let the games begin
+
     # Welcome to the ultimate showdown ladies and gentlemen!
     BENCHMARKS = [
-        ('Senormalized Set Sammy', denormalized_set_intersect, denormalized_setup),
+        ('Denormalized Set Sammy', denormalized_set_intersect, denormalized_setup),
         ('Normalized Set Jen', normalized_set_intersect, normalized_setup),
-        ('Normalized Boolean Alice', normalized_boolean, normalized_setup),
-        ('Denormalized Boolean Bob', denormalized_boolean, denormalized_setup),
+        ('Normalized Boolean Bob', normalized_boolean, normalized_setup),
+        ('Denormalized Boolean Alice', denormalized_boolean, denormalized_setup),
     ]
     
     for name, prog, setup in BENCHMARKS:
@@ -77,9 +78,11 @@ Now I'm on a roll! What else is there...? Derp. The obvious, booleans!
 
 ## Results 
 
-    Senormalized Set Sammy--- 0.195351839066 sec
-    Normalized Set Jen------- 0.832314968109 sec
-    Normalized Boolean Alice- 0.677690982819 sec
-    Denormalized Boolean Bob- 0.0748100280762 sec
 
-    
+    Denormalized Set Sammy--- 0.195351839066 sec
+    Normalized Set Jen------- 0.832314968109 sec
+    Normalized Boolean Bob- 0.677690982819 sec
+    Denormalized Boolean Alice- 0.0748100280762 sec   <--- Our lightweight champion!
+
+
+So this is what I get for being to cleaver. A simple double boolean is all it takes. Some of our more clever readers will have noticed, "Hey, what you are searching for is not actually in the set!" Yes, my astute friend, and this is because there is a relativly tiny number of headers that could be matched. And the most common case is not a miss. So the goal is to ensure that all normal usage is not effected too much by this filter. I hope this make sense.
