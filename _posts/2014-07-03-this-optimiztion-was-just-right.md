@@ -73,15 +73,15 @@ Now I'm on a roll! What else is there...? Derp. The obvious, booleans!
     ]
     
     for name, prog, setup in BENCHMARKS:
-        print "{0:-<25} {1} sec".format(name, timeit.timeit(prog, setup=setup, number=1000000))
+        print "{0:-<27} {1} sec".format(name, timeit.timeit(prog, setup=setup, number=1000000))
 
 
 ## Results 
 
 
-    Denormalized Set Sammy--- 0.195351839066 sec
-    Normalized Set Jen------- 0.832314968109 sec
-    Normalized Boolean Bob- 0.677690982819 sec
+    Denormalized Set Sammy----- 0.195351839066 sec
+    Normalized Set Jen--------- 0.832314968109 sec
+    Normalized Boolean Bob----- 0.677690982819 sec
     Denormalized Boolean Alice- 0.0748100280762 sec   <--- Our lightweight champion!
 
 
