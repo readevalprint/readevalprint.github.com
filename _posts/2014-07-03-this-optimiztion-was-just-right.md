@@ -15,7 +15,8 @@ And also you will have a precomputed list with all the naugty headers. The no-no
 
     import timeit
     
-    #This was was my initial guess. Trying to be clever with sets and not using lists. And imaging string mangling is not great.
+    # This was was my initial guess. Trying to be clever with sets and not using lists. And imaging 
+    # string mangling is not great.
     
     # Simple set intersection
     denormalized_set_intersect = '{header1, header2} & denormalized_bad_list' 
