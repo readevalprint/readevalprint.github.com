@@ -1,6 +1,6 @@
 ---
 title: Micro benchmarks for fun and profit.
-layout: blog_page
+layout: post_page
 ---
 There comes a certain point in a developer's life where they have the insatiable desire to do a benchmark. And not just any bechmark but a micro benchmark of something like string manipulation or data lookups. Whatever.  
 
