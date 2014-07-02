@@ -1,5 +1,5 @@
 ---
-title: Micro benchmarks for fun and profit.
+title: Python micro benchmarks for fun and profit.
 layout: post_page
 ---
 There comes a certain point in a developer's life where they have the insatiable desire to do a benchmark. And not just any bechmark but a micro benchmark of something like string manipulation or data lookups. Whatever.  
@@ -9,7 +9,7 @@ Let's set the mood. You get a lot of http requests. A ton. Metric tonne. And bas
     header1 = "value:junk"
     header2 = "junk=value"
     
-And also you will have a precomputed list with all the naugty headers. The no-no list. And now the questions is, how *do* you do it?
+And also you will have a precomputed list with all the naugty headers. The no-no list. And now the questions is, how *do* you do it? You also have python. Beause it's pretty much a good all around language.
 
 ## Trial by fire
 
