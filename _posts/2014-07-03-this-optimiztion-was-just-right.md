@@ -51,7 +51,7 @@ Ok that might work, but is it worth it? No spoilers!! But anyway, these test pro
     
 Now I'm on a roll! What else is there...? Derp. The obvious, booleans!
 
-    # And then I was thinking that I was over thinking it and tried an or on a whim.
+    # And then I was thinking that I was over thinking it and tried an "or" on a whim.
     normalized_boolean = '''\
     (header1.split(':')[0] in normalized_bad_list) or (header2.split('=')[1] in normalized_bad_list)
     '''
