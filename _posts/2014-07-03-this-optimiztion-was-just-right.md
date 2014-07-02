@@ -17,6 +17,8 @@ And also you will have a precomputed list with all the naugty headers. The no-no
     
     #This was was my initial guess. Trying to be clever with sets and not using lists. And imaging string mangling is not great.
     
+    # Simple set intersection
+    denormalized_set_intersect = '{header1, header2} & denormalized_bad_list' 
     
     denormalized_setup = '''\
     header1='z:something'
@@ -29,23 +31,22 @@ And also you will have a precomputed list with all the naugty headers. The no-no
      'e:something', 'something=e',
      'f:something', 'something=f'
     }'''
+
     
-    denormalized_set_intersect = '''\
-    {header1, header2} & denormalized_bad_list
-    '''
-    
-Ok that might work, but is it worth it? No spoilers!! But anyway, these are in string because they will be benchmarked in a bit.
+Ok that might work, but is it worth it? No spoilers!! But anyway, these test programs are in string because they will be benchmarked in a bit.
 
     # But then I was wondering if it was really better than trimming the strings..
+
+    normalized_set_intersect = '''\
+    {header1.split(':')[0], header2.split('=')[1]} & normalized_bad_list  
+    '''
+
     normalized_setup = '''\
     header1='z:something'
     header2='something=z'
     normalized_bad_list={'a', 'b', 'c', 'd', 'e', 'f'}
     '''
     
-    normalized_set_intersect = '''\
-    {header1.split(':')[0], header2.split('=')[1]} & normalized_bad_list  
-    '''
     
 Now I'm on a roll! What else is there...? Derp. The obvious, booleans!
 
