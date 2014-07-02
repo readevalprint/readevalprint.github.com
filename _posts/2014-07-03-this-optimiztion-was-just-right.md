@@ -1,6 +1,8 @@
 ---
 title: Python micro benchmarks for fun and profit.
 layout: post_page
+image: https://cloud.githubusercontent.com/assets/118430/3463633/c285b1c8-023c-11e4-9d79-da46d12edd0f.jpg
+
 ---
 There comes a certain point in a developer's life where they have the insatiable desire to do a benchmark. And not just any bechmark but a micro benchmark of something like string manipulation or data lookups. Whatever.  
 
