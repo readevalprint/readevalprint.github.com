@@ -1,6 +1,7 @@
 ---
 layout: post_page
 title: Further thoughts with the Python AST.
+image: https://cloud.githubusercontent.com/assets/118430/3476218/bb2a8fba-02fb-11e4-98e7-7a0ee2ae2907.jpg
 ---
 Ok just to come back to the whole python AST thing. I wanted to see how hard to make that nested dict into something that runs again. Let's see!!
 
