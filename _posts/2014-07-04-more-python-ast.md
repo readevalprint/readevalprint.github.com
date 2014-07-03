@@ -125,4 +125,5 @@ Yay! Boring ol module object without errors!
 
 A bit of a round trip... I'm wondering how to get a markov chain of nodes. Maybe generate them from scratch? Maybe even run them against some UnitTests. And they called me mad! I'll show them... I'll show them all!
 
-    >> rotN('K"lwuv"ycpv"vq"dg"cnkxg"cpf"hggn"vjg"ykpf"qp"o{"uecnr0')
+    >> rotN('K"lwuv"ycpv"vq"dg"cnkxg"cpf"hggn"vjg"ykpf"qp"o{"uecnr0', -2)
+    
