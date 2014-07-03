@@ -6,26 +6,15 @@ Ok just to come back to the whole python AST thing. I wanted to see how hard to 
 
 ## First the set up
 
-    def deserialize(node):
-        """ Returns an ast instance from an expanded dict. """
-        if isinstance(node, tuple):
-            klass, kws = node
-            return klass(**deserialize(kws))
-        elif isinstance(node, dict):
-            d = {}
-            for k, v in node.items():
-                d[k] = deserialize(v)
-            return d
-        elif isinstance(node, list):
-            return [deserialize(n) for n in node]
-        else:
-            return node
+    >>import ast
+    >>import pprint
     
-    >> deserialized_tree = deserialize(expanded_tree)
-    >> print "Deserialized: ", deserialized_tree
-    AST:  <_ast.Module object at 0x35dc450>
+    >>tree = ast.parse("c = ' '.join(['hi' + 'world']);print c")
+    >>print "AST: ", tree
 
-Derp. We knew this.
+    AST:  <_ast.Module object at 0x35dc910>
+
+Derp. We knew this. Let us continue with the project. It's ever so slightly modified from an earlier post.
 
     # "serialize" better than "parse" don't you think?
     def serialize(node):
@@ -47,9 +36,11 @@ Derp. We knew this.
         
         # Who knows what it is, just return it.
         return node
-    
-    serialized_tree = serialize(tree)
-    print "Serialized: ", pprint.pformat(serialized_tree)
+  
+With a pinch of the `tree` above and a splash of python goodness we get...  
+ 
+    >> serialized_tree = serialize(tree)
+    >> print "Serialized: ", pprint.pformat(serialized_tree)
     
     Serialized:  (<class '_ast.Module'>,
  {'body': [(<class '_ast.Assign'>,
@@ -104,6 +95,7 @@ Derp. We knew this.
                           'lineno': 1})]})]})
                           
 ## Let's take it back to the beginning
+We can build it again. Faster. Stronger. More Better.
 
     def deserialize(node):
         """ Returns an ast instance from an expanded dict. """
@@ -124,7 +116,7 @@ Derp. We knew this.
     >> print "Deserialized: ", deserialized_tree
     Deserialized:  <_ast.Module object at 0x36b7690>
 
-Yay! Borking ol module object without errors!
+Yay! Boring ol module object without errors!
 
 ## But will it run?
 
