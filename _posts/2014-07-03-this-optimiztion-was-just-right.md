@@ -88,7 +88,7 @@ Now I'm on a roll! What else is there...? Derp. The obvious, booleans!
     Denormalized Boolean Alice- 0.0748100280762 sec   <--- Our lightweight champion!
 
 
-So this is what I get for trying to be smart. A simple double boolean is all it takes. Some of our more clever readers will have noticed, "Hey, what you are searching for is not actually in the set!" Yes, my astute friend, and this is because there is a relatively tiny number of headers that could be matched. And the most common case is a miss. So the goal here is to ensure that all normal usage is not effected too much by this filter. I hope this make sense.
+So this is what I get for trying to be smart. A simple double boolean is all it takes. Some of our more clever readers will have noticed, "Hey, what you are searching for is not actually in the set!" Yes, my astute friend, and this is because there is a relatively tiny number of headers that could be matched. And the most common case is a miss. So the goal here is to ensure that all normal usage is not affected too much by this filter. I hope this make sense.
 
 
 Until next time, take care of yourself, and each other.
