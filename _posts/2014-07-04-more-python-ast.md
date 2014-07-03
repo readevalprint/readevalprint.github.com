@@ -123,6 +123,6 @@ Yay! Boring ol module object without errors!
     >> exec(compile(deserialized_tree, filename="<ast>", mode="exec"))
     hello world
 
-A bit of a round trip... I'm wondering hot to get a markov chain of nodes. Maybe generate them from scratch? And they called me mad! I'll show them... I'll show them all!
+A bit of a round trip... I'm wondering how to get a markov chain of nodes. Maybe generate them from scratch? Maybe even run them against some UnitTests. And they called me mad! I'll show them... I'll show them all!
 
     >> rotN('K"lwuv"ycpv"vq"dg"cnkxg"cpf"hggn"vjg"ykpf"qp"o{"uecnr0')
