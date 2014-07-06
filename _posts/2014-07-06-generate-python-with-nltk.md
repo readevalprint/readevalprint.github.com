@@ -4,7 +4,7 @@ layout: post_page
 ---
 
 
-So these past few posts have been about parsing python and manipulating the AST. But now I'm wondering if there are other ways. We could use Lex-Yacc which I've been wanting to get into for a long time. But also I wanted to enumerate ofer the possible output programs of a specific depth. So I did what any sensable programmer would do and asked Virtual Noam Chomsky.
+So these past few posts have been about parsing python and manipulating the AST. But now I'm wondering if there are other ways. We could use Lex-Yacc which I've been wanting to get into for a long time. But also I wanted to enumerate over the possible output programs. So I did what any sensable programmer would do and asked Virtual Noam Chomsky.
 
     >>> from nltk.misc.chomsky import generate_chomsky
     >>> generate_chomsky(times=1, line_length=80)
