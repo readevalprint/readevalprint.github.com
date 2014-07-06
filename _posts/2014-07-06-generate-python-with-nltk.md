@@ -48,7 +48,7 @@ Out:
 Ok that's cool! That's some sweet grammar you got there... But do you know how to use it?
 
     for s in generate.generate(grammar, depth=7, n=50):
-    print ''.join(s)
+        print ''.join(s)
     
 Out:
 
