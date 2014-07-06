@@ -21,7 +21,7 @@ Reading about [LFG](http://en.wikipedia.org/wiki/Lexical_functional_grammar) and
     import nltk
     print nltk.__version__
     from nltk.parse import generate
-    from nltk import nonterminals, Production, CFG
+    from nltk import CFG
     
     grammar = CFG.fromstring("""M -> E
     E -> EE
