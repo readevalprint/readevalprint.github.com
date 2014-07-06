@@ -44,7 +44,7 @@ Out:
      B -> E '*' E,
      B -> E '/' E]
      
-Ok that's cool! That some sweet grammar you got there... But do you know what to do with it?
+Ok that's cool! That's some sweet grammar you got there... But do you know how to use it?
 
     for s in generate.generate(grammar, depth=7, n=50):
     print ''.join(s)
@@ -102,7 +102,7 @@ Out:
     ((b+a)+(a/a))
     ((b+a)+(a/b))
     
-Hummmm. Let's see if we can make a solver?! Can you guess what I'm getting at? Code generation + UnitTests = Robotic programmer overlords!
+Code generation + test cases = Robotic programmer overlords! 
 
     from __future__ import division
     import functools
