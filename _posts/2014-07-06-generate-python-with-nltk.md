@@ -49,7 +49,7 @@ Ok that's cool! That some sweet grammar you got there... But do you know what to
     for s in generate.generate(grammar, depth=7, n=50):
     print ''.join(s)
     
-Out;
+Out:
 
     ((a+a)+(a+a))
     ((a+a)+(a+b))
