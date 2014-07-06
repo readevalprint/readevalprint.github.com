@@ -1,6 +1,7 @@
 ---
 title: Code generation for Fun and Profit.
 layout: post_page
+image: https://cloud.githubusercontent.com/assets/118430/3489125/3972bc5e-0517-11e4-89b6-daeb9bb28bd5.png
 ---
 
 
