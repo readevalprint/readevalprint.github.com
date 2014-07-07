@@ -1,6 +1,7 @@
 ---
 title: From Python NLTK to AST to Code.
 layout: post_page
+image: https://cloud.githubusercontent.com/assets/118430/3502380/d43af184-0620-11e4-8e76-fc8e52a6a5ff.jpg
 ---
    
 First this.  
