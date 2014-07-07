@@ -95,7 +95,7 @@ Out
     1
     
 A lot of "stuff" is happening right now. Buuuuuut it's kind of a pain to read this. I want code again. Real python code. A bit of research shows what we have a few options of various levels of upkeep. 
-[unparse](https://pypi.python.org/pypi/UnParse) and 
+[unparse](http://svn.python.org/projects/python/trunk/Demo/parser/unparse.py) and 
 [codegen.py](https://github.com/andreif/codegen/blob/master/codegen.py) look interesting. Let's try unparse first. 
 
     import unparse
