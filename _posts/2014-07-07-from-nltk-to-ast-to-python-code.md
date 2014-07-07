@@ -96,7 +96,7 @@ Out
     
 A lot of "stuff" is happening right now. Buuuuuut it's kind of a pain to read this. I want code again. Real python code. A bit of research shows what we have a few options of various levels of upkeep. 
 [unparse](https://pypi.python.org/pypi/UnParse) and 
-[codegen.cpy](https://github.com/andreif/codegen/blob/master/codegen.py) look intersting. Let's try unparse first. 
+[codegen.py](https://github.com/andreif/codegen/blob/master/codegen.py) look intersting. Let's try unparse first. 
 
     import unparse
     
