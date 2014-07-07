@@ -104,14 +104,13 @@ A lot of "stuff" is happening right now. Buuuuuut it's kind of a pain to read th
     unparse.Unparser(new_ast, sys.stdout)
 
 Out
+    
     <_ast.Module object at 0x3414290>
     
     if (a > a):
         print a
     else:
         print a
-
-Out
 
     <unparse.Unparser instance at 0x23a1680>
     
