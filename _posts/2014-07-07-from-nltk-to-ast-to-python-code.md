@@ -110,7 +110,9 @@ Out
         print a
     else:
         print a
-    Out[27]:
+
+Out
+
     <unparse.Unparser instance at 0x23a1680>
     
 Hmph! Works.
