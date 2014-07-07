@@ -7,7 +7,7 @@ image: https://cloud.githubusercontent.com/assets/118430/3502380/d43af184-0620-1
 First this.  
    
       "A butterfly alights upon a key. SyntaxError"
-      -ReadEvalPrrint
+      -ReadEvalPrint
 
 Yes, I may be the greatest poet you have ever read. You are welcome. But let's get back to business. I want more python code being generated. And I do not want your butterflies and their nasty `SyntaxErrors`. Let's take the formal grammer a bit farther and make the AST tree and not the raw text code. What for you ask? Well to tell the truth, I want to do `if`, `for` and possibly `while` loops and builting that from strings sounds painful. But we could build it in pure python logic! [Enter Stage Right] The AST.
 
