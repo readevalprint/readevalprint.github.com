@@ -4,7 +4,7 @@ title: Private or Secure
 image: https://cloud.githubusercontent.com/assets/118430/3424545/f334ccf6-ffd4-11e3-95eb-a9462b5ad69e.jpg
 ---
 
-A great beer conversation kept me up thinking: This is the difference between security and privacy? This is a flow of thought post.
+A great beer conversation kept me up thinking, what is the difference between security and privac on a philsophical, more than techincal, level.
 
 "Entity" is information or an object.
 "Privacy" is the ability to control access to an entity.Ex. Your browsing history data. Who you voted for in an election.
