@@ -39,3 +39,5 @@ Then call it
     23
     3> lists:sum(lists:map(fun eular:three_or_five/1, lists:seq(0,1000-1))).
     <no spoiler you cheat!>
+
+This was a lot of fun. The hardest part was understanding how to call the built in functions. I could have done everything myself. Including iterating over the list. But no. Function code has `map`, and `sum`. I am still not sure why `lists:map` needs `fun` beforr the function...
