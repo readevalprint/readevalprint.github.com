@@ -11,33 +11,31 @@ essentially fizz-buzz. "Find the sum of all the multiples of 3 or 5 below 1000."
 because you can learn the built in functions first!
 
 
-```
-# File eular.erl
--module(eular).
--export([three_or_five/1]).
+    
+    # File eular.erl
+    -module(eular).
+    -export([three_or_five/1]).
+    
+    three_or_five(A) ->
+        if
+            A rem 3 == 0 ->
+                A;
+            A rem 5 == 0 ->
+                A;
+            true ->
+                0
+        end.
 
-three_or_five(A) ->
-    if
-        A rem 3 == 0 ->
-            A;
-        A rem 5 == 0 ->
-            A;
-        true ->
-            0
-    end.
-```
 
 Then call it
 
-```
-$ erl
-Erlang R16B01 (erts-5.10.2) [source] [64-bit] [smp:8:8] [async-threads:10] [kernel-poll:false]
-
-Eshell V5.10.2  (abort with ^G)
-1> c(eular).
-{ok,eular}
-2> lists:sum(lists:map(fun eular:three_or_five/1, lists:seq(0,10-1))).  
-23
-3> lists:sum(lists:map(fun eular:three_or_five/1, lists:seq(0,1000-1))).
-<no spoiler you cheat!>
-```
+    $ erl
+    Erlang R16B01 (erts-5.10.2) [source] [64-bit] [smp:8:8] [async-threads:10] [kernel-poll:false]
+    
+    Eshell V5.10.2  (abort with ^G)
+    1> c(eular).
+    {ok,eular}
+    2> lists:sum(lists:map(fun eular:three_or_five/1, lists:seq(0,10-1))).  
+    23
+    3> lists:sum(lists:map(fun eular:three_or_five/1, lists:seq(0,1000-1))).
+    <no spoiler you cheat!>
