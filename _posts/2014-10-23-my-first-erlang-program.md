@@ -11,7 +11,6 @@ essentially fizz-buzz. "Find the sum of all the multiples of 3 or 5 below 1000."
 because you can learn the built in functions first!
 
 
-
 ```
 # File eular.erl
 -module(eular).
@@ -26,11 +25,10 @@ three_or_five(A) ->
         true ->
             0
     end.
-
-
 ```
 
 Then call it
+
 ```
 $ erl
 Erlang R16B01 (erts-5.10.2) [source] [64-bit] [smp:8:8] [async-threads:10] [kernel-poll:false]
