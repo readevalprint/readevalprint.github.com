@@ -3,10 +3,10 @@ layout: post_page
 title: My first Erlang program
 ---
 
-Enough reading and watching (great videos)[https://www.youtube.com/watch?v=xrIjfIjssLE]. It's time to 
+Enough reading and watching [great videos](https://www.youtube.com/watch?v=xrIjfIjssLE]). It's time to 
 get our grubby little virtual fingers dirty in some code.
 
-A great way to get in the mix is (Project Euler)[https://projecteuler.net/problem=1]! The first problem is 
+A great way to get in the mix is [Project Euler](https://projecteuler.net/problem=1)! The first problem is 
 essentially fizz-buzz. "Find the sum of all the multiples of 3 or 5 below 1000." This is a great one 
 because you can learn the built in functions first!
 
