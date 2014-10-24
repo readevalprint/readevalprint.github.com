@@ -43,7 +43,7 @@ Then call it
 This was a lot of fun! The hardest part was navagating the docs and understanding how to call the built in functions. I could have done everything myself. Including iterating over the list. But no. Function code has `map`, and `sum`. You should use them. I am still not sure why `lists:map` needs `fun` before the function...
 
 ## Update!
-Was talking to a colleague and he metioned that this program should use [guards](http://learnyousomeerlang.com/syntax-in-functions#guards-guards). I was all like "huh?". Then looked it up. Took a minuite but made sense and the code is shorter!
+Was talking to a colleague and he metioned that this program should use [guards](http://learnyousomeerlang.com/syntax-in-functions#guards-guards). I was all like "huh?". Then looked it up. Took a moment to get my head around the concept but made sense and the code is shorter!
 
 
     # File eular.erl
