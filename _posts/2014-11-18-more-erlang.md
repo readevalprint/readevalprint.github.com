@@ -7,7 +7,6 @@ Ok back at Erlang again, and this time we are on Problem two of [Project Eular](
 
 SPOILER ALERT! This is the question but not the answer.
 
-=====
 
 Problem 2
 ---------
