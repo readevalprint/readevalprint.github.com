@@ -3,9 +3,9 @@ layout: post_page
 title: Getting Polished with Rust
 ---
 
-So my coworker is the local [Rust](http://www.rust-lang.org/) acolyte and he has persuaded me to give it a try. So here is a stream of though.
+So my coworker is the local [Rust](http://www.rust-lang.org/) acolyte and he has persuaded me to give it a try. So here is a stream of thought from this journey.
 
-## curl | bash
+## `curl | bash` is sad
 
 Ugh, I hate the security implications of having people piping things directly to bash. That is the path of sadness.
 
@@ -29,5 +29,7 @@ Ok ok ok I get it! Now I got the "hello world" to compile and run.
 
 hahah wooo!!!
 
+Now I attempt to do [fizzbuzz](http://c2.com/cgi/wiki?FizzBuzzTest)!
 
-
+Was getting a strange error, `print!("hi")` would not flush the buffer when the
+program ended unless there was a trailing newline. So strange.
