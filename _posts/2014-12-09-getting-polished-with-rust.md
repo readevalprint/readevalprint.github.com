@@ -32,4 +32,26 @@ hahah wooo!!!
 Now I attempt to do [fizzbuzz](http://c2.com/cgi/wiki?FizzBuzzTest)!
 
 Was getting a strange error, `print!("hi")` would not flush the buffer when the
-program ended unless there was a trailing newline. So strange.
+program ended unless there was a trailing newline. So strange. But it only happened
+on my computer so it is ok, we will move on.
+
+## Done!
+
+  fn main() {
+    for i in range(0, 100i) {
+      if i % 3 == 0 {
+        print!("Fizz");
+      }
+      if i % 5 == 0 {
+        print!("Buzz");
+      }
+      if (i % 5 == 0) | (i % 3 == 0)  {
+        println!("");
+      }
+    }
+  }
+
+
+Woot!woot!
+
+
