@@ -37,19 +37,19 @@ on my computer so it is ok, we will move on.
 
 ## Done!
 
-  fn main() {
-    for i in range(0, 100i) {
-      if i % 3 == 0 {
-        print!("Fizz");
-      }
-      if i % 5 == 0 {
-        print!("Buzz");
-      }
-      if (i % 5 == 0) | (i % 3 == 0)  {
-        println!("");
+    fn main() {
+      for i in range(0, 100i) {
+        if i % 3 == 0 {
+          print!("Fizz");
+        }
+        if i % 5 == 0 {
+          print!("Buzz");
+        }
+        if (i % 5 == 0) | (i % 3 == 0)  {
+          println!("");
+        }
       }
     }
-  }
 
 
 Woot!woot!
